@@ -1,6 +1,11 @@
-# CO1111
-UMM IDK its Lab10
+Hello everyone 
+This is the updated manual for our project
 
-damnnn ok
-##Hello hashhhhhhhhh:) 
-This is hella confusing but cool at the same time
+While{
+Step1: Sleep
+Step2: Coffee
+Step3: Work/Learn and code
+Step4: More coffee
+Step5: More coding
+Step6: Got to sleep
+}
