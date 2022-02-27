@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Games List</title>
+    <link REL="stylesheet" href="css/Queastions.css">
+</head>
+<body>
+<div class="navbar">
+    <a href="Landing%20Page%20(%20info%20about%20pjct%20and%20team).html">Home</a>
+    <a href="#news">What's New!</a>
+    <a href="#contacts">Socials</a>
+</div>
+
+
+<h1 CLASS="title1">All Challenges</h1>
+<ul id="challenges"></ul>
+<script>
+    let challengesList = document.getElementById("challenges");
+    fetch("https://codecyprus.org/th/api/list?include-finished")
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+            let treasureHunts = jsonObject.treasureHunts;
+            for (let i = 0; i < treasureHunts.length; i++) {
+                //get name of the treasure hunt...
+                let name = treasureHunts[i].name;
+                console.log(name);
+                let listItem = document.createElement("li"); //Create a list item
+                listItem.innerHTML = name; //Set the content of the list item
+                challengesList.appendChild(listItem); //Append item to list
+            }
+            console.log(treasureHunts); //TODO - Success, do something with the data.
+        }) ;
+</script>
+</body>
+</html>
+<!-- NICE I SEE IT U ADDED THE NAMES TO THE LIST. yup yes i can see them me bullet points--previous treusure hunts--is working????--nice-->

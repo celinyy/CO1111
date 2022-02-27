@@ -1,19 +1,19 @@
-*{
-    background-color: #0f2310;
-}
+
 .title{
-    font-size: 30px;
-    font-family: "Burbank Big Cd Bk", "Arial";
-    top: 0;
+    font-size: 50px;
+    font-family: "HoloLens MDL2 Assets";
+    margin-top: 100px;
     font-weight: bold;
-    color: #dddddd;
+    color: #f2f2f2;
+    position: center;
+
 }
 .navbar {
     overflow: hidden;
     background-color: black;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
-    left: 350px;
+
     width: 100%; /* Full width */
 }
 
@@ -36,4 +36,69 @@
 /* Main content */
 .main {
     margin-top: 30px; /* Add a top margin to avoid content overlay */
+}
+
+.btn {
+    background-color: lemonchiffon;
+    font-size: 50px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 2px darkgoldenrod;
+    font-family: "Burbank Big Cd Bk", "Fira Code";
+    text-align: center;
+    margin: auto;
+    display: flex;
+    top: 50%;
+}
+html {
+   background-color: lightgreen;
+    background-size: cover;
+    background-image: url("TestPhoto.png");
+    background-repeat: no-repeat;
+
+}
+.box{
+   border: 2px darkgoldenrod;
+    width: 40%;
+    height: 40%;
+    background-color: lightskyblue;
+    opacity: 80%;
+    margin: auto;
+}
+.boxes{
+    display: block;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+.text1{
+font-family: "JetBrains Mono Medium";
+    padding: 20px;
+    font-size: 20px;
+}
+.map {
+    background-image: url("img_Treasure.png");
+    background-size: cover;
+}
+.twitter {
+    width: 25%;
+    height: 25%;
+
+}
+.subtitle {
+    color: black;
+    font-size: 250%;
+    padding: 15%;
+}
+
+.subtitlebox {
+    border: 50px darkgoldenrod;
+    width: 50%;
+    height: 10%;
+    background-color: burlywood;
+    opacity: 100%;
+    margin: auto;
+    background-image: url("img_Treasure.png");
+    background-repeat: no-repeat;
+    background-size: 500px;
+
 }
