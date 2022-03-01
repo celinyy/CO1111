@@ -33,6 +33,17 @@
     color: black;
 }
 
+.navbar #playButton
+{
+    float:left;
+    display: block;
+    background-color: cornflowerblue;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
 /* Main content */
 .main {
     margin-top: 30px; /* Add a top margin to avoid content overlay */
@@ -55,7 +66,7 @@ html {
     background-size: cover;
     background-image: url("TestPhoto.png");
     background-repeat: no-repeat;
-
+    scroll-behavior: smooth;
 }
 .box{
    border: 2px darkgoldenrod;
@@ -80,12 +91,13 @@ font-family: "JetBrains Mono Medium";
     background-size: cover;
 }
 .twitter {
+    align-content: center;
     width: 25%;
     height: 25%;
 
 }
 .subtitle {
-    color: black;
+    color: white;
     font-size: 250%;
     padding: 15%;
 }
@@ -101,4 +113,32 @@ font-family: "JetBrains Mono Medium";
     background-repeat: no-repeat;
     background-size: 500px;
 
+}
+@media only screen and (max-width: 1000px)
+{
+    .title
+    {
+        text-align: center;
+    }
+    .navbar #playButton
+    {
+        font-size: large;
+        text-align: center;
+        alignment: center;
+        position: relative;
+        left: 150px;
+    }
+    .text1
+    {
+        font-size: medium;
+    }
+    .subtitle
+    {
+        font-size: medium;
+        color: white;
+    }
+    .box
+    {
+        font-size: small;
+    }
 }
