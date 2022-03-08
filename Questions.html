@@ -26,7 +26,7 @@
                 let name = treasureHunts[i].name;
                 console.log(name);
                 let listItem = document.createElement("li"); //Create a list item
-                listItem.innerHTML = name; //Set the content of the list item
+                listItem.innerHTML = "<a href= 'https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=" + treasureHunts[i].uuid + "'>" + treasureHunts[i].name + "</a>";
                 challengesList.appendChild(listItem); //Append item to list
             }
             console.log(treasureHunts); //TODO - Success, do something with the data.
@@ -34,4 +34,3 @@
 </script>
 </body>
 </html>
-<!-- NICE I SEE IT U ADDED THE NAMES TO THE LIST. yup yes i can see them me bullet points--previous treusure hunts--is working????--nice-->
