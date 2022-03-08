@@ -1,8 +1,13 @@
 *{
     margin: 0;
     padding: 0;
+    color: black;
     font-family: sans-serif;
     box-sizing: border-box;
+}
+html
+{
+    scroll-behavior: smooth;
 }
 body{
     margin: 0;
@@ -11,6 +16,7 @@ body{
 .menu ul {
     display: inline-flex;
     margin: 20px;
+    text-decoration: none;
 
 }
 .menu li{
@@ -19,20 +25,35 @@ body{
     color: black;
     cursor: pointer;
     padding-left: 10px;
+    text-decoration: none;
 }
 .topTitle{
+    color: black !important;
+    margin: auto;
     font-weight: bold;
     font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap
 }
 .play-btn{
-    top: 40px;
+    top: 10px;
     padding-left: 800px;
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    position: fixed;
+    border: black;
+}
+
+a .play-btn a:hover
+{
+    background-color: #E3D461;
+    color: cornflowerblue;
 }
 .section1 {
-    background-color: darkolivegreen;
+    background-color: #E3D461;
     width: 100%;
     height: 60px;
     position: fixed;
@@ -55,51 +76,50 @@ body{
     padding-top: 150px;
 }
 .blackline{
-    background-color: black;
+    background-color: #E3D461;
     width: 100%;
     height: 20px;
 }
 
 .section2{
-    background-color: darkolivegreen;
+    background-color: #E3D461;
     width: 100%;
     height: 600px;
     display: block;
 }
 .section3{
-    background-color: olive;
+    background-color: #E3D461;
     width: 100%;
     height: 600px;
-}
-.section4{
-    background-color: gold;
-    width: 100%;
-    height: 600px;
-}
-.section5{
-    background-color: yellow;
-    width: 100%;
-    height: 600px;
-}
-footer{
-    background-color: black;
-    width: 100%;
-    height: 100px;
-    color: #dddddd;
 }
 .btn{
+    background-color: #E3D461;
+    border-radius: 10px;
     text-align: center;
     margin: auto;
+    align-items: center;
     display: flex;
     display: grid;
     width: 250px;
     height: 50px;
     font-size: 30px;
 }
+
 .button{
     padding-top: 300px;
 }
-
+.gamesStory {
+    text-align: left;
+    position: relative;
+    right: 50px;
+    font-size: 30px;
+    font-family: "Fira Code";
+    font-weight: bold;
+    max-width: 600px;
+    margin-left: 525px;
+    border-color: black;
+    border-width: 50px;
+}
 /*.map{
     position: center;
     text-align: center;
@@ -109,15 +129,4 @@ footer{
     width: 800px;
     margin-top: -80px;
 }*/
-.about{
-    margin-left: 10%;
-    padding-top: 10%;
-}
-.abtus{
-    margin-left: 18%;
-    padding-top: 1%;
-}
-.gamesStory{
-    margin-left: 15%;
-    padding-top: 15%;
-}
+
