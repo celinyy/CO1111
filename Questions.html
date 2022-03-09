@@ -26,10 +26,10 @@
                 let name = treasureHunts[i].name;
                 console.log(name);
                 let listItem = document.createElement("li"); //Create a list item
-                listItem.innerHTML = "<a href= 'https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=" + treasureHunts[i].uuid + "'>" + treasureHunts[i].name + "</a>";
+                listItem.innerHTML = "<a href= 'Login.html' >" + treasureHunts[i].name + "</a>";
                 challengesList.appendChild(listItem); //Append item to list
             }
-            console.log(treasureHunts); //TODO - Success, do something with the data.
+            console.log(treasureHunts); //TODO - Success, do something with the data.+ treasureHunts[i].uuid
         }) ;
 </script>
 </body>
