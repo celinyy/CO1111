@@ -6,15 +6,45 @@
     <link REL="stylesheet" href="css/Queastions.css">
 </head>
 <body>
-<div class="navbar">
-    <a href="Landing%20Page%20(%20info%20about%20pjct%20and%20team).html">Home</a>
-    <a href="#news">What's New!</a>
-    <a href="#contacts">Socials</a>
+<div class="backgroundContainer">
+    <section class="section1">
+        <ul class="menu">
+            <li><a class="play-btn" href="Landing%20Page%20(%20info%20about%20pjct%20and%20team).html">Home</a></li>
+        </ul>
+    </section>
+
+    <section class="section2">
+        <div class="gameBackground">
+            <div class="container">
+                <div id="game" class="justifyCenter flexColumn">
+                    <h2 id="question">Whats the answer to this question?</h2>
+                    <div class="choice-containter">
+                        <p class="choice-prefix">A</p>
+                        <p class="choice-text" data-number="1">choice 1</p>
+                    </div>
+                    <div class="choice-containter">
+                        <p class="choice-prefix">B</p>
+                        <p class="choice-text" data-number="2">choice 2</p>
+                    </div>
+                    <div class="choice-containter">
+                        <p class="choice-prefix">C</p>
+                        <p class="choice-text" data-number="3">choice 3</p>
+                    </div>
+                    <div class="choice-containter">
+                        <p class="choice-prefix">D</p>
+                        <p class="choice-text" data-number="4">choice 4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 
-<h1 CLASS="title1">All Challenges</h1>
-<ul id="challenges"></ul>
+
+<script src="js/QuestionsJS.js"> </script>
+
+
 <script>
     let challengesList = document.getElementById("challenges");
     fetch("https://codecyprus.org/th/api/list?")
