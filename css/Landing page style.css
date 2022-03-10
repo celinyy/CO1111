@@ -120,6 +120,52 @@ a .play-btn a:hover
     border-color: black;
     border-width: 50px;
 }
+@media only screen and (max-width: 1000px)
+{
+    .section1
+    {
+        height: 200px;
+    }
+    .topTitle
+    {
+        position: relative;
+        top: 20px;
+        left: 70px;
+    }
+    .active
+    {
+        position: relative;
+        top: 50px;
+        right: 100px;
+    }
+    #about
+    {
+        position: relative;
+        top: 80px;
+        right: 340px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    #news
+    {
+        position: relative;
+        top: 110px;
+        right: 210px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    #socialsList
+    {
+        position: relative;
+        top: 140px;
+        right: 450px;
+        overflow: hidden;
+        white-space: nowrap;
+
+
+
+    }
+    }
 /*.map{
     position: center;
     text-align: center;
