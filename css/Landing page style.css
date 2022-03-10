@@ -35,17 +35,6 @@ body{
     overflow: hidden;
     white-space: nowrap
 }
-.play-btn{
-    top: 10px;
-    padding-left: 800px;
-    text-decoration: none;
-    color: white;
-    font-size: 25px;
-    overflow: hidden;
-    white-space: nowrap;
-    position: fixed;
-    border: black;
-}
 
 a .play-btn a:hover
 {
@@ -67,22 +56,17 @@ a .play-btn a:hover
     background-repeat: no-repeat;
     background-size: cover;
 }
-.title{
+.title {
     color: white;
     font-weight: bold;
-    text-align: center ;
+    text-align: center;
     font-size: 500%;
     position: center;
     padding-top: 150px;
 }
-.blackline{
-    background-color: #E3D461;
-    width: 100%;
-    height: 20px;
-}
 
 .section2{
-    background-color: #E3D461;
+    background-color: #e39361;
     width: 100%;
     height: 600px;
     display: block;
@@ -91,6 +75,11 @@ a .play-btn a:hover
     background-color: #E3D461;
     width: 100%;
     height: 600px;
+}
+.section4{
+    width: 100%;
+    height: 600px;
+    background-color: #e39361;
 }
 .btn{
     background-color: #E3D461;
@@ -104,22 +93,33 @@ a .play-btn a:hover
     height: 50px;
     font-size: 30px;
 }
+.blackline{
+    width: 100%;
+    height: 10px;
+    background-color: black;
+}
 
 .button{
     padding-top: 300px;
 }
 .gamesStory {
-    text-align: left;
-    position: relative;
-    right: 50px;
-    font-size: 30px;
-    font-family: "Fira Code";
-    font-weight: bold;
-    max-width: 600px;
-    margin-left: 525px;
-    border-color: black;
-    border-width: 50px;
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-top: 10%;
+    font-size: 150%;
 }
+.About-us-text{
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 10%;
+}
+
+.About-game-text{
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 10%;
+}
+
 /*.map{
     position: center;
     text-align: center;
@@ -129,4 +129,13 @@ a .play-btn a:hover
     width: 800px;
     margin-top: -80px;
 }*/
+footer{
+    width: 100%;
+    height: 150px;
+    background-color: black;
 
+}
+footer h1{
+    color: #E3D461;
+
+}

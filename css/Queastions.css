@@ -33,6 +33,7 @@
     width: 80%;
     left: 10%;
     top: 15%;
+    padding: 2% 2% 2% 2%;
 }
 .Qbackground{
     background-color: coral;
@@ -47,4 +48,22 @@
     color: black;
     font-size: 25px;
 }
+#question{
+    padding-left: 5%;
+    width: 100%;
+    max-font-size: 600%;
+}
+.choice-text{
+    width: 100%;
+    padding-left: 10%;
+}
+.choice-prefix{
+    padding-left: 5%;
+    width: 10%;
+    padding-top: 1%;
+    top: 50%;
+}
+#hud{
+    display: flex;
+    justify-content: space-between;
 

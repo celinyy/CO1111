@@ -51,8 +51,8 @@ getNewQuestion = () => {
 
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
         //END PAGE
-        //return window.location.assign()
-    }
+        return window.location.assign("Leaderboard.html")
+        z }
 
     questionCounter++;//increment the question the moment the game starts for a new question.
     const questionIndex =  Math.floor(Math.random() * availableQuestions.length) //make it an integer
