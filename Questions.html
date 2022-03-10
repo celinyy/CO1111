@@ -45,22 +45,6 @@
 <script src="js/QuestionsJS.js"> </script>
 
 
-<script>
-    let challengesList = document.getElementById("challenges");
-    fetch("https://codecyprus.org/th/api/list?")
-        .then(response => response.json()) //Parse JSON text to JavaScript object
-        .then(jsonObject => {
-            let treasureHunts = jsonObject.treasureHunts;
-            for (let i = 0; i < treasureHunts.length; i++) {
-                //get name of the treasure hunt...
-                let name = treasureHunts[i].name;
-                console.log(name);
-                let listItem = document.createElement("li"); //Create a list item
-                listItem.innerHTML = "<a href= 'Login.html' >" + treasureHunts[i].name + "</a>";
-                challengesList.appendChild(listItem); //Append item to list
-            }
-            console.log(treasureHunts); //TODO - Success, do something with the data.+ treasureHunts[i].uuid
-        }) ;
-</script>
+
 </body>
 </html>
