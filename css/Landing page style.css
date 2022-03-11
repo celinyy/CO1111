@@ -35,7 +35,10 @@ body{
     overflow: hidden;
     white-space: nowrap
 }
-
+h1
+{
+    text-align: center;
+}
 a .play-btn a:hover
 {
     background-color: #E3D461;
@@ -123,6 +126,7 @@ a .play-btn a:hover
     padding-left: 15%;
     padding-right: 15%;
 }
+
 /*.map{
     position: center;
     text-align: center;
@@ -181,9 +185,11 @@ footer{
         right: 450px;
         overflow: hidden;
         white-space: nowrap;
-
-
-
+        text-decoration: none;
+    }
+    .play-btn
+    {
+        display:none;
     }
 }
 
