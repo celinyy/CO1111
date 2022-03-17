@@ -24,14 +24,21 @@
     <h5 id="title-login">Registration</h5>
     <p class="info"  id="player">Name: <input type="text" name="Name" id="Name" required maxlength="20" minlength="2"/></p>
     <p class="info"  id="StartBTN"> <input type="submit" value="Start the Game!"/> </p>
+
 </form>
 
 
 <!--   comment     -->
 <script>
-    let startBTN = document.getElementById("StartBTN")
-    fetch("https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw")
 
+    let StartList = document.getElementById("Start");
+    fetch("https://codecyprus.org/th/api/start?player=Team4&app=Team4App&treasure-hunt-id= ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw")
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+                let listItem = document.createElement("li"); //Create a list item
+                listItem.innerHTML = "<a href= 'https://codecyprus.org/th/api/start?player=Team4&app=Team4App&treasure-hunt-id= ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw' >" + treasureHunts[i].name + "</a>";
+                challengesList.appendChild(listItem); //Append item to list
+        }) ;
 </script>
 
 

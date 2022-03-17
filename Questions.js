@@ -7,33 +7,14 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
-let questions = [
-    {
-        question: "whats the assignment?",
-        choice1: "cartoon",
-        choice2: "treasure hunt",
-        choice3: "monkey",
-        choice4: "banana",
-        answer: 2
-    },
-    {
+let questions = [];
 
-        question: "whats the year?",
-        choice1: "1090",
-        choice2: "1998",
-        choice3: "2010",
-        choice4: "2022",
-        answer: 4
-    },
-    {
-        question: "whens the deadline?",
-        choice1: "march,2023",
-        choice2: "april, 2022",
-        choice3: "jan, 2020",
-        choice4: "march, 2022",
-        answer: 4
-    }
-];
+
+fetch("https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM")
+    .then(response => response.json())
+    .then(jsonObject => {
+        console.log(jsonObject);
+    });
 
 //constants
 const CORRECT_BONUS = 10;
@@ -49,10 +30,10 @@ startGame = () => {
 }
 getNewQuestion = () => {
 
-    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
+    //if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
         //END PAGE
-        return window.location.assign("Leaderboard.html")
-        z }
+        //return window.location.assign("Leaderboard.html")
+        //}
 
     questionCounter++;//increment the question the moment the game starts for a new question.
     const questionIndex =  Math.floor(Math.random() * availableQuestions.length) //make it an integer
