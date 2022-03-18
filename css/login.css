@@ -1,0 +1,34 @@
+html {
+    background-color: #E3D461;
+}
+.section1{
+    background-color: darkolivegreen;
+}
+.menu ul {
+    display: inline-flex;
+    margin: 20px;
+    text-decoration: none;
+
+}
+.menu li{
+    list-style: none;
+    margin: 0 20px;
+    color: black;
+    cursor: pointer;
+    padding-left: 10px;
+    text-decoration: none;
+}
+.login{
+    margin-top: 15%;
+    padding-left: 40%;
+}
+#title-login{
+    font-size: 200%;
+}
+#info-name{
+    font-size: 150%;
+}
+#info-btn{
+    font-size: 100%;
+    padding-left: 25%;
+}
