@@ -141,6 +141,10 @@ footer{
     height: 150px;
     background-color: black;
 }
+.instagram-media
+{
+
+}
 .about{
 
 }
@@ -178,7 +182,7 @@ footer{
         overflow: hidden;
         white-space: nowrap;
     }
-    #socialsList
+    #socialsList a
     {
         position: relative;
         top: 140px;
@@ -188,6 +192,10 @@ footer{
         text-decoration: none;
     }
     .play-btn
+    {
+        display:none;
+    }
+    footer
     {
         display:none;
     }
