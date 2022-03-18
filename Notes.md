@@ -1,11 +1,11 @@
 NOTES:
 
 Meeting 1: Over Messages in MS teams.
--Talked about Theme, ideas, and type of questions.
--Theme = pirate
--next meeting in a week
--Idea = its a pirate riddle/question quiz game.
--questions = riddles with multiple choicem, type asnwers and ABCD answers.
+- Talked about Theme, ideas, and type of questions.
+- Theme = pirate
+- next meeting in a week
+- Idea = its a pirate riddle/question quiz game.
+- questions = riddles with multiple choicem, type asnwers and ABCD answers.
 
 Attended: All 3 of us
 
