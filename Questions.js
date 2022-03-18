@@ -10,11 +10,23 @@ let availableQuestions = [];
 let questions = [];
 
 
-fetch("https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM")
-    .then(response => response.json())
-    .then(jsonObject => {
-        console.log(jsonObject);
-    });
+fetch("https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw")
+    .then(response => {
+        return res.json();
+    })
+    .then(loadedQuestions => {
+        console.log(loadedQuestions.results);
+        loadedQuestions.results.map( loadedQuestions => {
+            const formattedQuestion = {
+                question: loadedQuestion.questions
+            };
+            const answerChoices = [...loadedQuestions.incorrect_answers];
+        })
+
+    })
+    .catch(err => {
+        console.error(err);
+    })
 
 //constants
 const CORRECT_BONUS = 10;

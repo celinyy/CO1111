@@ -44,3 +44,16 @@ html
 .info{
     font-size: 15px;
 }
+#challenges{
+    margin-top: 10%;
+    padding-left: 45%;
+    font-family: "Arial Black";
+    font-weight: bold;
+}
+li{
+    text-decoration: none;
+}
+.title1{
+    padding-left: 42%;
+
+}
