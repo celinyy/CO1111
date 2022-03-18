@@ -7,7 +7,8 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
-let questions = [];
+let questions = [
+];
 
 
 fetch("https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw")
