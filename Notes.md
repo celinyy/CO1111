@@ -36,25 +36,41 @@ What needs to be changed in main page
 Attended: All 3 of us
 
 Meeting 4
-attended all 3
-assigned tasks:
-marios-> registration page  & /list api with available treasure hunts
-Maria->Landing page css & questions js attemt to fetch /questions from api
-Lefteris->Landing page functionality. attemt hamburger navbar
 
-resolved problems:
-messy code
-functional landing page
-responsive on mobile
+assigned tasks:
+- marios-> registration page  & /list api with available treasure hunts
+- Maria->Landing page css & questions js attemt to fetch /questions from api
+- Lefteris->Landing page functionality. attemt hamburger navbar
+
+- resolved problems:
+- messy code
+- functional landing page
+- responsive on mobile
 
 next meeting: sun 13/03/2022 at 3pm
 
+Attended all 3
+
 Meeting 4 1/2
-last minute meeting to resolve errors with git
-Attended marios&maria MsTeams did not notify lefteris on time it send our msgs to him at 11 pm
+
+- last minute meeting to resolve errors with git
+- Attended marios&maria MsTeams did not notify lefteris on time it send our msgs to him at 11 pm
 resolved:
-code was updated but marios s page look dated
-code up to date with all the changes everyone in the team did
-styled login page
-created menu page
-and styles menu page 
+- code was updated but marios s page look dated
+- code up to date with all the changes everyone in the team did
+- styled login page
+- created menu page
+- and styles menu page 
+
+Meeting 5
+
+problems:
+- api urls no parameters ->DONE
+- landing page after add ons no longer responsive
+
+Tasks: 
+- fix pictures which are not showing
+- fix responsivnes on mobile and on desktop
+- add the apis 
+
+Attended all 3
