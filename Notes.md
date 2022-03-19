@@ -77,3 +77,25 @@ Attended all 3
 
 Meeting 6
 
+Problems:
+- Index page hamburger menu not working
+- pages being in caps instead of small letters
+- some elements have 2 ids and mixed up names
+- All 3 links in menu take you to the same page only one has to be visible
+- links still are underlined on some pages
+
+What we did so far:
+- start API is working and shows errors and alert is something is wrong
+- hamburger menu is working now and it looks responsive on phone
+
+Roles changed
+- Lefteris is working on everything HTML CSS 
+- Maria is javaScript
+- Marios Cookies 
+
+What needs to be done:
+- Unit testing
+- questions/api
+- cookies
+
+Attended: All 3
