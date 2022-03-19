@@ -24,8 +24,8 @@
 
 <form class="login" onsubmit="return false;">
     <h5 id="title-login">Registration</h5>
-    <p id="info-name"  id="player">Name: <input type="text" name="playerName" id="playerName" required maxlength="20" minlength="2"/></p>
-    <p id="info-btn"  id="StartBTN"> <input type="submit" onclick="start()" value="Start the Game"/> </p>
+    <p class="player-name"> Name: <input type="text" name="player" id="playerName"  required maxlength="20" minlength="2"/></p>
+    <p  id="StartBTN"> <input type="submit" onclick="start()" value="Start the Game"/> </p>
 </form>
 <p id="test"></p>
 
@@ -41,33 +41,35 @@
         const playerName = document.getElementById("playerName").value;
 
         //TODO - Check if the value is blank.....
+        if (document.getElementById("playerName").value.length === 0) {
+            alert("empty");
+        } else {
+            console.log("treasureHuntID: " + treasureHuntID);
+            console.log("playerName:" + playerName);
 
-        console.log("treasureHuntID: " + treasureHuntID);
-        console.log("playerName:" + playerName);
 
-
-        fetch("https://codecyprus.org/th/api/start?player=" + playerName + "&app=Team4-2022&treasure-hunt-id=" + treasureHuntID)
-            .then(response => response.json()) //Parse JSON text to JavaScript object
-            .then(jsonObject => {
-                if (jsonObject.status === "OK") {
-                    let sessionID = jsonObject.session;
-                    console.log(sessionID);
-                    setCookie("sessionID", sessionID, 30);
-                    window.location.href = "Questions.html";
-                }
-                else {
-                    let errorMessages = jsonObject.errorMessages;
-                    let str = "";
-                    for (let error in errorMessages) {
-                        str += error;
+            fetch("https://codecyprus.org/th/api/start?player=" + playerName + "&app=Team4-2022&treasure-hunt-id=" + treasureHuntID)
+                .then(response => response.json()) //Parse JSON text to JavaScript object
+                .then(jsonObject => {
+                    if (jsonObject.status === "OK") {
+                        let sessionID = jsonObject.sessionId;
+                        console.log(sessionID);
+                        setCookie("sessionID", sessionID, 30);
+                        window.location.href = "Questions.html";
+                    } else {
+                        let errorMessages = jsonObject.errorMessages;
+                        let str = "";
+                        for (let error in errorMessages) {
+                            str += error;
+                        }
+                        alert(str);
                     }
-                    alert(str);
-                }
-            })
-        .catch(error => {
-           alert(error);
-        });
+                })
+                .catch(error => {
+                    alert(error);
+                });
 
+        }
     }
 
 

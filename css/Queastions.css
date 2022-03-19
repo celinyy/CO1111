@@ -63,7 +63,8 @@
     padding-top: 1%;
     top: 50%;
 }
-#hud{
+#hud {
     display: flex;
     justify-content: space-between;
+}
 
