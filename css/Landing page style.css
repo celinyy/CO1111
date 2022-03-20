@@ -152,6 +152,11 @@ footer{
     height: 150px;
     background-color: black;
 }
+#twitter
+{
+    position: relative;
+    width: 50px;
+}
 .instagram-media
 {
 

@@ -66,24 +66,26 @@ ul
     {
         position: relative;
         top: 10px;
-        left: 110px;
+        left: 90px;
         overflow: hidden;
         white-space: nowrap;
     }
     #home
     {
+        color: #E3D461;
         position: relative;
         top: 40px;
-        right: 40px;
+        right: 60px;
         overflow: hidden;
         white-space: nowrap;
     }
 
     #about
     {
+        color: #E3D461 !important;
         position: relative;
         top: 70px;
-        right: 280px;
+        right: 300px;
         overflow: hidden;
         white-space: nowrap;
     }
@@ -91,7 +93,7 @@ ul
     {
         position: relative;
         top: 99px;
-        right: 155px;
+        right: 175px;
         overflow: hidden;
         white-space: nowrap;
     }
@@ -116,7 +118,7 @@ ul
     .player-name
     {
         position: relative;
-        right: 40px;
+        right: 50px;
     }
     #btn
     {
