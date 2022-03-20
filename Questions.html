@@ -7,7 +7,7 @@
     <script src="cookies.js"></script>
     <script>
         let sessionID = getCookie("sessionID");
-        console.log(sessionID);
+        console.log("sessionID" + ' ' + sessionID);
     </script>
 </head>
 <body>
@@ -35,9 +35,9 @@
                             <p class="hud-prefix">
 
                             </p>
-                            <hi class="hud-main-text">
+                            <h1 class="hud-main-text">
                                 Score
-                            </hi>
+                            </h1>
                             <h1 class="hud-main-text" id="score">
                             </h1>
                         </div>
@@ -70,28 +70,12 @@
 
 
    // const api_url = ;
-    async function getQuestions() {
-
-
-        function start() {
-            let searchParams = new URLSearchParams(window.location.search);
-            let treasureHuntID = searchParams.get("treasureHuntID");
-
-            let playerName =
-
-                fetch("https://codecyprus.org/th/api/start?player=" + playerName + "&app=Team4-2022&treasure-hunt-id=" + treasureHuntID)
-                    .then(response => response.json()) //Parse JSON text to JavaScript object
+    function getQuestions() {
+        fetch('https://codecyprus.org/th/api/question?session=' + sessionID )
+                    .then(response => response.json())
                     .then(jsonObject => {
                         if (jsonObject.status === "OK") {
-                            let sessionID = jsonObject.sessionId;
-                            console.log(sessionID);
-                            setCookie("sessionID", sessionID, 30);
-                            fetch('https://codecyprus.org/th/api/question?session=' + sessionID )
-                            .then(data => data.json())
-                            .then(jsonObject => {
-                                console.log(data)
-                            });
-
+                            console.log("OKY");
                         } else {
                             let errorMessages = jsonObject.errorMessages;
                             let str = "";
@@ -105,8 +89,6 @@
                         alert(error);
                     });
 
-            }
-            start();
 
 
 
@@ -133,8 +115,7 @@
              });*/
 
     }
-
-    getQuestions();
+   getQuestions();
 </script>
 
 
