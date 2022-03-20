@@ -67,34 +67,7 @@
 
 <script>
 
-
-
-   // const api_url = ;
-    function getQuestions() {
-        fetch('https://codecyprus.org/th/api/question?session=' + sessionID )
-                    .then(response => response.json())
-                    .then(jsonObject => {
-                        if (jsonObject.status === "OK") {
-                            console.log("OKY");
-                        } else {
-                            let errorMessages = jsonObject.errorMessages;
-                            let str = "";
-                            for (let error in errorMessages) {
-                                str += error;
-                            }
-                            alert(str);
-                        }
-                    })
-                    .catch(error => {
-                        alert(error);
-                    });
-
-
-
-
-
-
-            /* fetch('https://codecyprus.org/th/api/question?session=' +  sessionID)
+    /* fetch('https://codecyprus.org/th/api/question?session=' +  sessionID)
              .then(response => response.json()) //Parse JSON text to JavaScript object
              .then(jsonObject => {
                  if (jsonObject.status === "OK") {
@@ -114,7 +87,6 @@
                  alert(error);
              });*/
 
-    }
    getQuestions();
 </script>
 

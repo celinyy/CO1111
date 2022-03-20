@@ -31,47 +31,8 @@
 
 <!--   comment     -->
 <script>
-    //let url = new URL('https://codecyprus.org/th/api/start?player=Team4&app=Team4App&treasure-hunt-id= ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgIC8u8zICAw\n');
-    //console.log(url);
 
-    function start() {
-        let searchParams = new URLSearchParams(window.location.search);
-        let treasureHuntID = searchParams.get("treasureHuntID");
-
-        const playerName = document.getElementById("playerName").value;
-
-        //TODO - Check if the value is blank.....
-        if (document.getElementById("playerName").value.length === 0) {
-            alert("empty");
-        } else {
-            console.log("treasureHuntID: " + treasureHuntID);
-            console.log("playerName:" + playerName);
-
-
-            fetch("https://codecyprus.org/th/api/start?player=" + playerName + "&app=Team4-2022&treasure-hunt-id=" + treasureHuntID)
-                .then(response => response.json()) //Parse JSON text to JavaScript object
-                .then(jsonObject => {
-                    if (jsonObject.status === "OK") {
-                        let sessionID = jsonObject.sessionId;
-                        console.log(sessionID);
-                        setCookie("sessionID", sessionID, 30);
-                        window.location.href = "Questions.html";
-                    } else {
-                        let errorMessages = jsonObject.errorMessages;
-                        let str = "";
-                        for (let error in errorMessages) {
-                            str += error;
-                        }
-                        alert(str);
-                    }
-                })
-                .catch(error => {
-                    alert(error);
-                });
-
-        }
-    }
-
+    start();
 
 </script>
 
