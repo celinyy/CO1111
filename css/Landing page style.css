@@ -27,6 +27,10 @@ body{
     padding-left: 10px;
     text-decoration: none;
 }
+li a
+{
+    text-decoration: none;
+}
 .topTitle{
     color: black !important;
     margin: auto;
@@ -127,6 +131,13 @@ a .play-btn a:hover
     padding-right: 15%;
 }
 
+.infomage
+{
+    height: 100px;
+    width: auto;
+    position: relative;
+    left: 410px;
+}
 /*.map{
     position: center;
     text-align: center;
