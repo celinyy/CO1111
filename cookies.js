@@ -32,6 +32,7 @@ function checkCookie() {
         }
     }
 }
+
 function getChallenges () {
     let challengesList = document.getElementById("challenges");
     fetch("https://codecyprus.org/th/api/list?")
@@ -68,7 +69,7 @@ function start() {
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
                 if (jsonObject.status === "OK") {
-                    let sessionID = jsonObject.sessionId;
+                    let sessionID = jsonObject.session;
                     console.log(sessionID);
                     setCookie("sessionID", sessionID, 30);
                     window.location.href = "Questions.html";
