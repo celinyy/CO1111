@@ -44,7 +44,7 @@ function getChallenges () {
                 let name = treasureHunts[i].name;
                 console.log(name);
                 let listItem = document.createElement("li"); //Create a list item
-                listItem.innerHTML = "<a href= 'testing/test-login.html?treasureHuntID=" + treasureHunts[i].uuid + "' >" + treasureHunts[i].name + "</a>";
+                listItem.innerHTML = "<a href= 'test-login.html?treasureHuntID=" + treasureHunts[i].uuid + "' >" + treasureHunts[i].name + "</a>";
                 challengesList.appendChild(listItem); //Append item to list
             }
             console.log(treasureHunts); //TODO - Success, do something with the data.+ treasureHunts[i].uuid
