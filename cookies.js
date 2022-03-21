@@ -59,7 +59,7 @@ function start() {
     setCookie("playerName", playerName, 30);
 
     //TODO - Check if the value is blank.....
-    if (document.getElementById("playerName").value.length === 0) {
+    if (document.getElementById("playerName").value.length === null) {
         alert("empty");
     } else {
         console.log("treasureHuntID: " + treasureHuntID);
@@ -187,7 +187,7 @@ function Skip(){
             else {
                 if (jsonObject.status === "ERROR"){
                     let errorMessages = jsonObject.errorMessages;
-                    let str = "Not skipped";
+                    let str = "";
                     for (let error in errorMessages) {
                         str += error;
                     }
