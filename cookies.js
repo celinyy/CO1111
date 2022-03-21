@@ -54,6 +54,7 @@ function getChallenges () {
 function start() {
     let searchParams = new URLSearchParams(window.location.search);
     let treasureHuntID = searchParams.get("treasureHuntID");
+    setCookie("treasureHuntID", treasureHuntID, 30);
 
     const playerName = document.getElementById("playerName").value;
     setCookie("playerName", playerName, 30);
@@ -97,12 +98,6 @@ function getQuestions() {
             if (jsonObject.status === "OK") {
 
                 if (jsonObject.completed === false) {
-
-                    //requires location.json
-                    // json.current questions print out 1/4
-                    // current questions is numof questions -1
-
-                    //visibility of forms
                     let questionsElement = document.getElementById("question");//prinnting question
                     questionsElement.innerText = jsonObject.questionText;
 
@@ -132,21 +127,16 @@ function getQuestions() {
                         document.getElementById("text-option").style.visibility = "hidden";
                     }
                                 /*================================================================================*/
-
                 }
                 if (jsonObject.canBeSkipped === true) { //showing the skip button
-
                     document.getElementById("skip-form").style.visibility = "visible";
-
                     Skip();
                 }
-                let numOfQ = jsonObject.numOfQuestions;
 
-                let currentQ = jsonObject.currentQuestionIndex;
-
-                for (currentQ = 0; currentQ <= numOfQ.length;currentQ++){
-                }
-
+                //let numOfQ = jsonObject.numOfQuestions;
+                //let currentQ = jsonObject.currentQuestionIndex;
+                //for (currentQ = 0; currentQ <= numOfQ.length;currentQ++){}
+                score();
                 } else {
                     let errorMessages = jsonObject.errorMessages;
                     let str = "";
@@ -162,11 +152,42 @@ function getQuestions() {
 }
 
 function getAnswers() {
-    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID)
+    let integerAnswer = document.getElementById("integer-answer");
+    let trueAnswer = document.getElementById("true-answer");
+    let falseAnswer = document.getElementById("false-answer");
+    let textAnswer = document.getElementById("text-answer");
+    let numericAnswer = document.getElementById("numeric-answer");
+    let optionA = document.getElementById("answer-a");
+    let optionB = document.getElementById("answer-b");
+    let optionC = document.getElementById("answer-c");
+    let optionD = document.getElementById("answer-d");
+
+    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + integerAnswer + trueAnswer + falseAnswer + textAnswer + numericAnswer + optionA + optionB + optionC + optionD)
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
-
+                if (jsonObject.correct === true){
+                    let message = jsonObject.message;
+                    alert(message);
+                    //score +10
+                }
+                else {
+                    if (jsonObject.correct === false){
+                        let wrgMessage = jsonObject.message;
+                        alert(wrgMessage);
+                        //score -3
+                    }
+                }
+            }
+            else {
+                if(jsonObject.status === "ERROR") {
+                    let errorMessages = jsonObject.errorMessages;
+                    let str = "";
+                    for (let error in errorMessages) {
+                        str += error;
+                    }
+                    alert(str);
+                }
             }
         })
 }
@@ -205,7 +226,7 @@ function score(){
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
 
-                let playerName = getCookie("playerNamer")
+                getCookie("playerName");
 
                 if (jsonObject.completed === false){
                     if (jsonObject.finished === false){
@@ -218,3 +239,15 @@ function score(){
 
 }
 score();
+function leaderboard(){
+    let searchParams = new URLSearchParams(window.location.search);
+    let treasureHuntID = searchParams.get("treasureHuntID");
+
+    fetch('https://codecyprus.org/th/api/leaderboard?session=' + sessionID + '&treasure-hunt-id=' + treasureHuntID)
+        .then(response => response.json())
+        .then(jsonObject => {
+            if (jsonObject.status === "OK"){
+
+            }
+        })
+}
