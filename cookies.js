@@ -95,6 +95,15 @@ function getQuestions() {
         .then(jsonObject => {
             if (jsonObject.status === "OK") {
 
+                //json.completed === false or true if no more questions
+                //can be skipped true false
+                //requires location.json
+                //num of questions for loop
+                //for (let i = 0; i <= json.numofquestions.leghth; i++)
+                // json.current questions print out 1/4
+                // current questions is numof questions -1
+
+                //visibility of forms
                 let questionsElement = document.getElementById("question");//prinnting question
                 questionsElement.innerText = jsonObject.questionText;
 
@@ -112,7 +121,30 @@ function getQuestions() {
                 else {
                     document.getElementById("option-boolean").style.visibility = "hidden";
                 }
+                /*================================================================================*/
+                if (jsonObject.questionType === "MCQ"){
+                    document.getElementById("option-mcq").style.visibility = "visible";
 
+                }
+                else {
+                    document.getElementById("option-mcq").style.visibility = "hidden";
+                }
+                /*================================================================================*/
+                if (jsonObject.questionType === "TEXT"){
+                    document.getElementById("text-option").style.visibility = "visible";
+                }
+                else {
+                    document.getElementById("text-option").style.visibility = "hidden";
+                }
+                /*================================================================================*/
+
+
+                if (jsonObject.canBeSkipped === true) {
+
+                    document.getElementById("skip-form").style.visibility = "visible";
+
+                    Skip();
+                }
             } else {
                 let errorMessages = jsonObject.errorMessages;
                 let str = "";
@@ -129,4 +161,39 @@ function getQuestions() {
 
 function getAnswers() {
     fetch('https://codecyprus.org/th/api/answer?session=' + sessionID)
+        .then(response => response.json())
+        .then(jsonObject => {
+            if (jsonObject.status === "OK"){
+
+            }
+        })
+}
+
+function Skip(){
+    fetch('https://codecyprus.org/th/api/skip?session=' + sessionID)
+        .then(response => response.json())
+        .then(jsonObject => {
+            if (jsonObject.status === "OK"){
+                if (jsonObject.completed === false){
+                    alert("Skipped");
+                }
+                //check json === completed = true OR FALSE
+                //let complete = "";
+                // let skipMsg = json.message
+                //alert = skip msg
+            }
+            else {
+                if (jsonObject.status === "ERROR"){
+                    let errorMessages = jsonObject.errorMessages;
+                    let str = "Not skipped";
+                    for (let error in errorMessages) {
+                        str += error;
+                    }
+                    alert(str);
+                }
+            }
+        })
+        .catch(error => {
+            alert(error);
+        });
 }
