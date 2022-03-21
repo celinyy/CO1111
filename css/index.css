@@ -121,6 +121,9 @@ a .play-btn a:hover
     font-size: 25px;
 }
 .About-us-text{
+    position: relative;
+    bottom: 90px;
+    text-align: center;
     padding-right: 15%;
     padding-left: 15%;
     padding-top: 10%;
@@ -147,7 +150,8 @@ a .play-btn a:hover
     width: 800px;
     margin-top: -80px;
 }*/
-footer{
+footer
+{
     position: relative;
     top:1000px;
     width: 100%;
