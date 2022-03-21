@@ -94,7 +94,25 @@ function getQuestions() {
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK") {
-                console.log("OKY");
+
+                let questionsElement = document.getElementById("question");//prinnting question
+                questionsElement.innerText = jsonObject.questionText;
+
+                if (jsonObject.questionType === "INTEGER"){
+                    document.getElementById("option-integer").style.visibility = "visible";
+
+                }
+                else {
+                    document.getElementById("option-integer").style.visibility = "hidden";
+                }
+                /*================================================================================*/
+                if (jsonObject.questionType === "BOOLEAN"){
+                    document.getElementById("option-boolean").style.visibility = "visible";
+                }
+                else {
+                    document.getElementById("option-boolean").style.visibility = "hidden";
+                }
+
             } else {
                 let errorMessages = jsonObject.errorMessages;
                 let str = "";
@@ -107,4 +125,8 @@ function getQuestions() {
         .catch(error => {
             alert(error);
         });
+}
+
+function getAnswers() {
+    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID)
 }
