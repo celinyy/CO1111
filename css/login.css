@@ -1,5 +1,5 @@
 html {
-    background-color: #E3D461;
+    background-color: #e39361;
 }
 *{
     margin: 0;
@@ -7,33 +7,33 @@ html {
     font-family: sans-serif;
     box-sizing: border-box;
 }
+.menu-container
+{
+    padding-top: 5%;
+}
 .section1
 {
-    background-color: darkolivegreen;
+    position: relative;
+    background-color: #E3D461;
     width: 100%;
     height: 60px;
+
 }
-li a {
-    color: #E3D461 !important;
+
+
+li a
+{
     text-decoration: none;
 }
-li
+
+
+.menu ul
 {
-    color: #E3D461;
-}
-.topTitle
-{
-    color: #E3D461; !important;
-}
-.menu ul {
     display: inline-flex;
     margin: 20px;
     text-decoration: none;
 }
-ul
-{
-    color: #E3D461; !important;
-}
+
 .menu li{
     list-style: none;
     margin: 0 20px;
@@ -42,12 +42,31 @@ ul
     padding-left: 10px;
     text-decoration: none;
 }
+input
+{
+    position: relative;
+    bottom: 20px;
+    right: 40px;
+    height: 50px;
+}
 .login{
     margin-top: 15%;
     padding-left: 40%;
 }
 #title-login{
+    position: relative;
+bottom: 270px;
     font-size: 200%;
+}
+.player-name
+{
+    position: relative;
+    left: 70px;
+}
+#StartBTN
+{
+    position: relative;
+
 }
 #info-name{
     font-size: 150%;
@@ -60,7 +79,7 @@ ul
 {
     .section1
     {
-        height: 155px;
+        height: 50px;
     }
     .topTitle
     {
@@ -82,7 +101,6 @@ ul
 
     #about
     {
-        color: #E3D461 !important;
         position: relative;
         top: 70px;
         right: 300px;
@@ -110,15 +128,16 @@ ul
     {
         display:none;
     }
-    #title-login
-    {
-    position: relative;
-    right: 40px;
+    #title-login {
+        position: relative;
+        bottom: 100px;
+        right: 50px;
+
     }
     .player-name
     {
         position: relative;
-        right: 50px;
+        right: 80px;
     }
     #btn
     {
