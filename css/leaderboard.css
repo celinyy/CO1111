@@ -1,0 +1,9 @@
+table{
+    width: 100%;
+    border: 1px sienna;
+}
+th, td {
+    border-bottom: 1px sandybrown;
+    text-align: left;
+
+}
