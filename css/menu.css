@@ -41,10 +41,14 @@ input
     height: 50px;
 }
 
-#challenges{
+#challenges a
+{
+
+    text-decoration: none;
     position: relative;
     top: 20px;
     margin-top: 10%;
+
     padding-left: 45%;
     font-weight: bold;
 }
@@ -55,7 +59,7 @@ li{
 {
     padding-left: 42%;
     position: relative;
-   bottom: 245px;
+   bottom: 120px;
 }
 @media only screen and (max-width: 1000px)
 {
@@ -69,11 +73,12 @@ li{
     {
         position: relative;
         right: 70px;
-        bottom: 110px;
+        bottom: 70px;
     }
     #challenges
     {
         position: relative;
+        top: 100px;
         right: 50px;
     }
 }
