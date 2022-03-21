@@ -56,6 +56,7 @@ function start() {
     let treasureHuntID = searchParams.get("treasureHuntID");
 
     const playerName = document.getElementById("playerName").value;
+    setCookie("playerName", playerName, 30);
 
     //TODO - Check if the value is blank.....
     if (document.getElementById("playerName").value.length === 0) {
@@ -198,3 +199,22 @@ function Skip(){
             alert(error);
         });
 }
+function score(){
+    fetch("https://codecyprus.org/th/api/score?session" + sessionID)
+        .then(response => response.json())
+        .then(jsonObject => {
+            if (jsonObject.status === "OK"){
+
+                let playerName = getCookie("playerNamer")
+
+                if (jsonObject.completed === false){
+                    if (jsonObject.finished === false){
+
+                    }
+                }
+
+            }
+        })
+
+}
+score();
