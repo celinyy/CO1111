@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Games List</title>
+    <link REL="stylesheet" href="../css/Queastions.css">
+    <script src="test-api.js"></script>
+    <script>
+        let sessionID = getCookie("sessionID");
+        console.log("sessionID" + ' ' + sessionID);
+    </script>
+</head>
+<body>
+<div class="backgroundContainer">
+    <section class="section1">
+        <ul class="menu">
+            <li><a class="play-btn" href="../index.html">Home</a></li>
+        </ul>
+    </section>
+
+    <section class="section2">
+        <div class="gameBackground">
+            <div class="container">
+                <div id="game" class="justifyCenter flexColumn">
+                    <div id="hud">
+                        <div id="hud-items">
+                            <p class="hud-prefix"></p>
+                            <h1 class="hud-main-text" id="number-of-questions"> 1/4</h1>
+                        </div>
+                        <div id="hud-item">
+                            <p class="hud-prefix"></p>
+                            <h1 class="hud-main-text">Score</h1>
+                            <h1 class="hud-main-text" id="score"></h1>
+                        </div>
+                    </div>
+                    <div class="question-container" >
+                        <h3 id="question"></h3>
+                        <div class="options-container">
+                            <!--------------------------------------------------->
+                            <!--Integer option -->
+                            <form style="visibility: hidden" id="option-integer">
+                                <input  type="number" id="integer-answer">
+                            </form>
+                            <!--------------------------------------------------->
+                            <!--boolean option -->
+                            <form style="visibility: hidden" id="option-boolean">
+
+                                <p>True<input id="true-answer"></p>
+                                <p>False<input type="checkbox" id="false-answer"></p>
+                            </form>
+                            <!--------------------------------------------------->
+                            <!--multiple choice -->
+                            <form style="visibility: hidden" id="option-mcq">
+                                <p>A<input type="checkbox" id="option-a"></p>
+                                <p>B<input type="checkbox" id="option-b"></p>
+                                <p>C<input type="checkbox" id="option-c"></p>
+                                <p>D<input type="checkbox" id="option-d"></p>
+                            </form>
+                            <!--------------------------------------------------->
+                            <!--text choice -->
+                            <form style="visibility: hidden" id="text-option">
+                                <input type="textbox" id="text-answer">
+                            </form>
+                            <!--------------------------------------------------->
+                            <!--numerical choice -->
+                            <form style="visibility: hidden" id="numeric-option">
+                                <input type="number" step="0.000001" id="numeric-answer">
+                            </form>
+                            <!--------------------------------------------------->
+                            <!--submit btn -->
+                            <form id="sumbit-form">
+                                <input id="submit" type="submit" value="submit" required />.
+                            </form>
+                            <!--------------------------------------------------->
+                            <form style="visibility: hidden" id="skip-form">
+                                <input type="submit" id="skipBtn" onsubmit="Skip()" value="Skip Question">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    getQuestions();
+    getAnswers();
+    Skip();
+    score();
+</script>
+
+
+
+</body>
+</html>
