@@ -216,4 +216,10 @@ footer{
         display:none;
     }
 }
+img{
+    display: block;
+    width: 60%;
+    margin-left: -150%;
+    margin-right: 0;
+}
 
