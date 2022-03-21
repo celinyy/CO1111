@@ -95,68 +95,69 @@ function getQuestions() {
         .then(jsonObject => {
             if (jsonObject.status === "OK") {
 
-                //json.completed === false or true if no more questions
-                //can be skipped true false
-                //requires location.json
-                //num of questions for loop
-                //for (let i = 0; i <= json.numofquestions.leghth; i++)
-                // json.current questions print out 1/4
-                // current questions is numof questions -1
+                if (jsonObject.completed === false) {
 
-                //visibility of forms
-                let questionsElement = document.getElementById("question");//prinnting question
-                questionsElement.innerText = jsonObject.questionText;
+                    //requires location.json
+                    // json.current questions print out 1/4
+                    // current questions is numof questions -1
 
-                if (jsonObject.questionType === "INTEGER"){
-                    document.getElementById("option-integer").style.visibility = "visible";
+                    //visibility of forms
+                    let questionsElement = document.getElementById("question");//prinnting question
+                    questionsElement.innerText = jsonObject.questionText;
+
+                    if (jsonObject.questionType === "INTEGER") {
+                        document.getElementById("option-integer").style.visibility = "visible";
+
+                    } else {
+                        document.getElementById("option-integer").style.visibility = "hidden";
+                    }
+                    /*================================================================================*/
+                        if (jsonObject.questionType === "BOOLEAN") {
+                        document.getElementById("option-boolean").style.visibility = "visible";
+                    } else {
+                        document.getElementById("option-boolean").style.visibility = "hidden";
+                    }
+                        /*================================================================================*/
+                            if (jsonObject.questionType === "MCQ") {
+                        document.getElementById("option-mcq").style.visibility = "visible";
+
+                    } else {
+                        document.getElementById("option-mcq").style.visibility = "hidden";
+                    }
+                            /*================================================================================*/
+                                if (jsonObject.questionType === "TEXT") {
+                        document.getElementById("text-option").style.visibility = "visible";
+                    } else {
+                        document.getElementById("text-option").style.visibility = "hidden";
+                    }
+                                /*================================================================================*/
 
                 }
-                else {
-                    document.getElementById("option-integer").style.visibility = "hidden";
-                }
-                /*================================================================================*/
-                if (jsonObject.questionType === "BOOLEAN"){
-                    document.getElementById("option-boolean").style.visibility = "visible";
-                }
-                else {
-                    document.getElementById("option-boolean").style.visibility = "hidden";
-                }
-                /*================================================================================*/
-                if (jsonObject.questionType === "MCQ"){
-                    document.getElementById("option-mcq").style.visibility = "visible";
-
-                }
-                else {
-                    document.getElementById("option-mcq").style.visibility = "hidden";
-                }
-                /*================================================================================*/
-                if (jsonObject.questionType === "TEXT"){
-                    document.getElementById("text-option").style.visibility = "visible";
-                }
-                else {
-                    document.getElementById("text-option").style.visibility = "hidden";
-                }
-                /*================================================================================*/
-
-
-                if (jsonObject.canBeSkipped === true) {
+                if (jsonObject.canBeSkipped === true) { //showing the skip button
 
                     document.getElementById("skip-form").style.visibility = "visible";
 
                     Skip();
                 }
-            } else {
-                let errorMessages = jsonObject.errorMessages;
-                let str = "";
-                for (let error in errorMessages) {
-                    str += error;
+                let numOfQ = jsonObject.numOfQuestions;
+
+                let currentQ = jsonObject.currentQuestionIndex;
+
+                for (currentQ = 0; currentQ <= numOfQ.length;currentQ++){
                 }
-                alert(str);
-            }
-        })
-        .catch(error => {
-            alert(error);
-        });
+
+                } else {
+                    let errorMessages = jsonObject.errorMessages;
+                    let str = "";
+                    for (let error in errorMessages) {
+                    str += error;
+                    }
+                    alert(str);
+                }
+            })
+            .catch(error => {
+                alert(error);
+            });
 }
 
 function getAnswers() {
