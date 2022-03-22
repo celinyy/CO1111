@@ -66,7 +66,7 @@ function start() {
         console.log("playerName:" + playerName);
 
 
-        fetch("https://codecyprus.org/th/test-api/start?player=inactive" + playerName + "&app=Team4-2022&treasure-hunt-id=" + treasureHuntID)
+        fetch("https://codecyprus.org/th/test-api/start?player=" + playerName + "&app=Team4-2022&treasure-hunt-id=" + treasureHuntID)
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
                 if (jsonObject.status === "OK") {
