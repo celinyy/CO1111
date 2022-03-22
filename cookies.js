@@ -76,12 +76,14 @@ function start() {
                     setCookie("sessionID", sessionID, 30);
                     window.location.href = "Questions.html";
                 } else {
-                    let errorMessages = jsonObject.errorMessages;
-                    let str = "";
-                    for (let error in errorMessages) {
-                        str += error;
+                    if (jsonObject.status === "ERROR") {
+                        let errorMessages = jsonObject.errorMessages;
+                        let str = "";
+                        for (let error in errorMessages) {
+                            str += error;
+                        }
+                        console.log(str);
                     }
-                    alert(str);
                 }
             })
             .catch(error => {
@@ -140,10 +142,11 @@ function getQuestions() {
                     document.getElementById("skip-form").style.visibility = "visible";
                     Skip();
                 }
+                if (jsonObject.numOfQuestions === 0){
+                let sublitbtn = document.getElementById("submit");
+                sublitbtn.innerHTML = window.location.href="Leaderboard.html";
+                }
 
-                //let numOfQ = jsonObject.numOfQuestions;
-                //let currentQ = jsonObject.currentQuestionIndex;
-                //for (currentQ = 0; currentQ <= numOfQ.length;currentQ++){}
                 score();
                 } else {
                     let errorMessages = jsonObject.errorMessages;
