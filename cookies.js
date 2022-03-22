@@ -127,11 +127,10 @@ function getQuestions() {
 
                 let questionsElement = document.getElementById("question");//prinnting question
                     questionsElement.innerText = jsonObject.questionText;
-                if (jsonObject.canBeSkipped === true) { //showing the skip button
-                    document.getElementById("skip-form").style.visibility= "visible";
-                }
 
-                score();
+                if (jsonObject.canBeSkipped === true) { //showing the skip button
+                    document.getElementById("skip-form").innerHTML = "<input style=\"visibility: hidden\" type=\"submit\" id=\"skipBtn\" value=\"Skip Question\">";
+                }
                 } else {
                     let errorMessages = jsonObject.errorMessages;
                     let str = "";
@@ -155,15 +154,12 @@ function getAnswers() {
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
                 if (jsonObject.completed === false && jsonObject.correct === true) {
-                        //document.getElementById("correct-answer-msg").style.visibility = "visible";
-                        getQuestions();
-
+                    score();
                 }
                 else {
                     if (jsonObject.completed === false && jsonObject.correct === true) {
 
-                            //document.getElementById("wrong-answer-msg").style.visibility = "visible";
-                            getQuestions();
+
                     }
                 }
             }
@@ -186,12 +182,8 @@ function Skip(){
     fetch('https://codecyprus.org/th/api/skip?session=' + sessionID)
         .then(response => response.json())
         .then(jsonObject => {
-            if (jsonObject.status === "OK"){
-                score();
-                if (jsonObject.completed === false){
-                    //document.getElementById("skip-msg").style.visibility = "visible";
-
-                }
+            if (jsonObject.status === "OK" && jsonObject.completed === false){
+                document.getElementById("playerName").innerText = playerName;
             }
             else {
                 if (jsonObject.status === "ERROR"){
@@ -212,15 +204,18 @@ function score(){
     fetch("https://codecyprus.org/th/api/score?session=" + sessionID)
         .then(response => response.json())
         .then(jsonObject => {
-            if (jsonObject.status === "OK"){
-                if (jsonObject.completed === false){
-                    if (jsonObject.finished === false){
-                        var score = jsonObject.score;
-                        let scoreElement = document.getElementById("score");
-                        scoreElement.innerHTML = score;
-                    }
+            if (jsonObject.status === "OK" && jsonObject.completed === false && jsonObject.finished === false){
+                var score = jsonObject.score;
+                let scoreElement = document.getElementById("score");
+                scoreElement.innerText = score;
+            }
+            else if (jsonObject.status === "ERROR") {
+                let errorMessages = jsonObject.errorMessages;
+                let str = "";
+                for (let error in errorMessages) {
+                    str += error;
                 }
-
+                console.log(str);
             }
         })
 
