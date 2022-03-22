@@ -166,10 +166,10 @@ function getQuestions() {
             });
 }
 
-var inputs = document.getElementsByClassName('asnwer');
+var inputs = document.getElementsByClassName('answer');
 
 function getAnswers() {
-    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + inputs)
+    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + )
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
