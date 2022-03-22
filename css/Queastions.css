@@ -27,7 +27,7 @@
     height: 1080px;
 }
 .gameBackground {
-    background-color: gold;
+    background-color: olive;
     position: absolute;
     height: 75%;
     width: 80%;
@@ -49,9 +49,24 @@
     font-size: 25px;
 }
 #question{
-    padding-left: 5%;
+    padding: 5% 5% 5% 5%;
     width: 100%;
     max-font-size: 600%;
+}
+#integer-answer{
+    width: 25%;
+    height: 50px;
+   margin-left: 5%;
+}
+#submit{
+    width: 80px;
+    height: 40px;
+    margin-left: 5%;
+}
+#skipBtn{
+    width: 100px;
+    height: 40px;
+    margin-left: 5%;
 }
 .choice-text{
     width: 100%;

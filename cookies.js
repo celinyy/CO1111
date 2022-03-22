@@ -103,52 +103,32 @@ function getQuestions() {
     fetch('https://codecyprus.org/th/api/question?session=' + sessionID)
         .then(response => response.json())
         .then(jsonObject => {
-            if (jsonObject.status === "OK") {
+            if (jsonObject.status === "OK" && jsonObject.completed === false) {
 
-                if (jsonObject.completed === false) {
-
-                    let questionsElement = document.getElementById("question");//prinnting question
-                    questionsElement.innerText = jsonObject.questionText;
-
-
+                if (jsonObject.questionType === "INTEGER"){
+                    document.getElementById("answers").innerHTML = "<input class=\"answer\" type=\"number\" id=\"integer-answer\">";
                 }
-                if (jsonObject.questionType === "INTEGER") {
-                    document.getElementById("option-integer").style.visibility = "visible";
-
-                } else {
-                    document.getElementById("option-integer").style.visibility = "hidden";
+                if (jsonObject.questionType === "BOOLEAN"){
+                    document.getElementById("answers").innerHTML = "<input class=\"answer\" onclick=\"getAnswers()\" type=\"submit\" value=\"true\" id=\"true-answer\">\n" +
+                        "                                <input class=\"answer\" onclick=\"getAnswers()\" type=\"submit\" value=\"false\" id=\"false-answer\">";
                 }
-                /*================================================================================*/
-                if (jsonObject.questionType === "BOOLEAN") {
-                    document.getElementById("option-boolean").style.visibility = "visible";
-                } else {
-                    document.getElementById("option-boolean").style.visibility = "hidden";
+                if (jsonObject.questionType === "MCQ"){
+                    document.getElementById("answers").innerHTML = "<input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"A\" type=\"button\" id=\"answer-a\">\n" +
+                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"B\" type=\"button\" id=\"answer-b\">\n" +
+                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"C\" type=\"button\" id=\"answer-c\">\n" +
+                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"D\" type=\"button\" id=\"answer-d\">";
                 }
-                /*================================================================================*/
-                if (jsonObject.questionType === "MCQ") {
-                    document.getElementById("option-mcq").style.visibility = "visible";
-
-                } else {
-                    document.getElementById("option-mcq").style.visibility = "hidden";
+                if (jsonObject.questionType === "TEXT"){
+                    document.getElementById("answers").innerHTML = " <input class=\"answer\" type=\"textbox\" id=\"text-answer\">";
                 }
-                /*================================================================================*/
-                if (jsonObject.questionType === "TEXT") {
-                    document.getElementById("text-option").style.visibility = "visible";
-                } else {
-                    document.getElementById("text-option").style.visibility = "hidden";
-                }
-                /*================================================================================*/
                 if (jsonObject.questionType === "NUMERIC"){
-                    document.getElementById("numeric-option").style.visibility = "visible";
-                }
-                else {
-                    document.getElementById("numeric-option").style.visibility = "hidden";
+                    document.getElementById("answers").innerHTML = "<input class=\"answer\" type=\"number\" step=\"0.000001\" id=\"numeric-answer\">";
                 }
 
-
+                let questionsElement = document.getElementById("question");//prinnting question
+                    questionsElement.innerText = jsonObject.questionText;
                 if (jsonObject.canBeSkipped === true) { //showing the skip button
-                    document.getElementById("skip-form").style.display= "inline";
-                    Skip();
+                    document.getElementById("skip-form").style.visibility= "visible";
                 }
 
                 score();
@@ -166,10 +146,11 @@ function getQuestions() {
             });
 }
 
-var inputs = document.getElementsByClassName('answer');
+
 
 function getAnswers() {
-    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + )
+    var inputs = document.getElementsByClassName('answers');
+    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + inputs)
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
