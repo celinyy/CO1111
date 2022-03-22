@@ -58,9 +58,25 @@
     height: 50px;
    margin-left: 5%;
 }
-input:hover {
+#answer-a:hover {
     background-color: #3897f0;
 }
+#answer-b:hover {
+    background-color: #E3D461;
+}
+#answer-c:hover {
+    background-color: gold;
+}
+#answer-d:hover{
+    background-color: olive;
+}
+#true-answer:hover{
+    background-color: #E3D461;
+}
+#false-answer:hover{
+    background-color: #E3D461;
+}
+
 #submit{
     width: 80px;
     height: 40px;
