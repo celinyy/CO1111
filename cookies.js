@@ -129,7 +129,7 @@ function getQuestions() {
                     questionsElement.innerText = jsonObject.questionText;
 
                 if (jsonObject.canBeSkipped === true) { //showing the skip button
-                    document.getElementById("skip-form").innerHTML = "<input style=\"visibility: hidden\" type=\"submit\" id=\"skipBtn\" value=\"Skip Question\">";
+                    document.getElementById("skip-form").innerHTML = "<input style=\"visibility: visible\" type=\"submit\" id=\"skipBtn\" value=\"Skip Question\">";
                 }
                 } else {
                     let errorMessages = jsonObject.errorMessages;
