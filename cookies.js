@@ -11,10 +11,10 @@ function getCookie(cname) {
     let ca = decodedCookie.split(';');
     for(let i = 0; i <ca.length; i++) {
         let c = ca[i];
-        while (c.charAt(0) == ' ') {
+        while (c.charAt(0) === ' ') {
             c = c.substring(1);
         }
-        if (c.indexOf(name) == 0) {
+        if (c.indexOf(name) === 0) {
             return c.substring(name.length, c.length);
         }
     }
@@ -109,19 +109,19 @@ function getQuestions() {
                     document.getElementById("answers").innerHTML = "<input class=\"answer\" type=\"number\" id=\"integer-answer\">";
                 }
                 if (jsonObject.questionType === "BOOLEAN"){
-                    document.getElementById("answers").innerHTML = "<input class=\"answer\" onclick=\"getAnswers()\" type=\"submit\" value=\"true\" id=\"true-answer\">\n" +
-                        "                                <input class=\"answer\" onclick=\"getAnswers()\" type=\"submit\" value=\"false\" id=\"false-answer\">";
+                    document.getElementById("answers").innerHTML = "<input class=\"answer\" onclick=\"getAnswers(true);\" type=\"submit\" value=\"true\" id=\"true-answer\">\n" +
+                        "                                <input class=\"answer\" onclick=\"getAnswers(false);\" type=\"submit\" value=\"false\" id=\"false-answer\">";
                     document.getElementById("sumbit-form").style.visibility = "hidden";
                 }
                 if (jsonObject.questionType === "MCQ"){
-                    document.getElementById("answers").innerHTML = "<input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"A\" type=\"submit\" id=\"answer-a\">\n" +
-                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"B\" type=\"submit\" id=\"answer-b\">\n" +
-                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"C\" type=\"submit\" id=\"answer-c\">\n" +
-                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"D\" type=\"submit\" id=\"answer-d\">";
+                    document.getElementById("answers").innerHTML = "<input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers('A');\" value=\"A\" type=\"submit\" id=\"answer-a\">\n" +
+                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers('B');\" value=\"B\" type=\"submit\" id=\"answer-b\">\n" +
+                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers('C');\" value=\"C\" type=\"submit\" id=\"answer-c\">\n" +
+                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers('D');\" value=\"D\" type=\"submit\" id=\"answer-d\">";
                     document.getElementById("sumbit-form").style.visibility = "hidden";
                 }
                 if (jsonObject.questionType === "TEXT"){
-                    document.getElementById("answers").innerHTML = " <input class=\"answer\" type=\"textbox\" id=\"text-answer\">";
+                    document.getElementById("answers").innerHTML = " <input class=\"answer\" type=\"text\" id=\"text-answer\">\n" + />
                 }
                 if (jsonObject.questionType === "NUMERIC"){
                     document.getElementById("answers").innerHTML = "<input class=\"answer\" type=\"number\" step=\"0.000001\" id=\"numeric-answer\">";
@@ -131,7 +131,7 @@ function getQuestions() {
                     questionsElement.innerText = jsonObject.questionText;
 
                 if (jsonObject.canBeSkipped === true) { //showing the skip button
-                    document.getElementById("skip-form").innerHTML = "<input style=\"visibility: visible\" type=\"submit\" id=\"skipBtn\" value=\"Skip Question\">";
+                    document.getElementById("skip-form").innerHTML = "<input style=\"visibility: visible\" type=\"submit\" onsubmit='Skip()' id=\"skipBtn\" value=\"Skip Question\">";
                 }
                 } else {
                     let errorMessages = jsonObject.errorMessages;
@@ -149,23 +149,22 @@ function getQuestions() {
 
 
 
-function getAnswers() {
-    var inputs = document.getElementsByClassName('answers');
-    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + inputs)
+function getAnswers(answer) {
+    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + answer)
         .then(response => response.json())
         .then(jsonObject => {
-            if (jsonObject.status === "OK"){
-                if (jsonObject.completed === false && jsonObject.correct === true) {
+
+            if (jsonObject.status === "OK" && jsonObject.completed === false && jsonObject.correct === true) {
+                score();
+                console.log("correct");
+            }
+
+                if (jsonObject.status === "OK" && jsonObject.completed === false && jsonObject.correct === true)
+                {
                     score();
+                    console.log("wrong");
                 }
                 else {
-                    if (jsonObject.completed === false && jsonObject.correct === true) {
-
-
-                    }
-                }
-            }
-            else {
                 if(jsonObject.status === "ERROR") {
                     let errorMessages = jsonObject.errorMessages;
                     let str = "";
@@ -252,8 +251,3 @@ function getLocation() {
         console.log("Geolocation is not supported by your browser.");
     }
 }
-function showPosition(position) {
-    console.log("Latitude: " + position.coords.latitude + ", Longitude: " +
-        position.coords.longitude);
-}
-getLocation();
