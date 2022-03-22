@@ -35,7 +35,7 @@ function checkCookie() {
 
 function getChallenges () {
     let challengesList = document.getElementById("challenges");
-    fetch("https://codecyprus.org/th/test-api/list?number-of-ths=2")
+    fetch("https://codecyprus.org/th/test-api/list?number-of-ths=1")
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             let treasureHunts = jsonObject.treasureHunts;
@@ -80,11 +80,9 @@ function start() {
                     for (let error in errorMessages) {
                         str += error;
                     }
-                    alert(str);
                 }
             })
             .catch(error => {
-                alert(error);
             });
 
     }
@@ -191,12 +189,10 @@ function Skip(){
                     for (let error in errorMessages) {
                         str += error;
                     }
-                    alert(str);
                 }
             }
         })
         .catch(error => {
-            alert(error);
         });
 }
 function score(){
