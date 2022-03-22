@@ -58,10 +58,9 @@ input
 bottom: 270px;
     font-size: 200%;
 }
-.player-name
-{
-    position: relative;
-    left: 70px;
+.registration{
+font-size: 20px ;
+    padding-right: 45%;
 }
 #StartBTN
 {
@@ -136,6 +135,7 @@ bottom: 270px;
     }
     .player-name
     {
+        width: 100px;
         position: relative;
         right: 80px;
     }

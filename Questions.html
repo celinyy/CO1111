@@ -35,54 +35,17 @@
                     </div>
                     <div class="question-container" >
                         <h3 id="question"></h3>
-                        <div class="options-container">
-                            <!--------------------------------------------------->
-                            <!--Integer option -->
-                            <form style="visibility: hidden" id="option-integer">
-                                <input class="answer" type="number" id="integer-answer">
-                            </form>
-                            <!--------------------------------------------------->
-                            <!--boolean option -->
-                            <form style="visibility: hidden"  id="option-boolean">
-                                <input class="answer" onclick="getAnswers()" type="button" value="true" id="true-answer">
-                                <input class="answer" onclick="getAnswers()" type="button" value="false" id="false-answer">
-                            </form>
-                            <!--------------------------------------------------->
-                            <!--multiple choice -->
-                            <form  style="visibility: hidden" id="option-mcq">
-                                <input class="answer" onclick="getAnswers()" value="A" type="button" id="answer-a">
-                                <input class="answer" onclick="getAnswers()" value="B" type="button" id="answer-b">
-                                <input class="answer" onclick="getAnswers()" value="C" type="button" id="answer-c">
-                                <input class="answer" onclick="getAnswers()" value="D" type="button" id="answer-d">
-                            </form>
-                            <!--------------------------------------------------->
-                            <!--text choice -->
-                            <form style="visibility: hidden" id="text-option">
-                                <input class="answer" type="textbox" id="text-answer">
-                            </form>
-                            <!--------------------------------------------------->
-                            <!--numerical choice -->
-                            <form style="visibility: hidden" id="numeric-option">
-                                <input class="answer" type="number" step="0.000001" id="numeric-answer">
-                            </form>
-                            <!--------------------------------------------------->
-                            <!--submit btn -->
-                            <form id="sumbit-form">
+                        <form id="answers">
+
+
+
+                        </form>
+                        <form id="sumbit-form">
                             <input id="submit" type="submit" value="submit" required onsubmit="getAnswers()"/>.
                             </form>
-                            <!--------------------------------------------------->
                             <form id="skip-form">
-                                <input type="submit" id="skipBtn" onclick="Skip()" value="Skip Question">
+                                <input style="visibility: hidden" type="submit" id="skipBtn" onclick="Skip()" value="Skip Question">
                             </form>
-                            <!--<div id="correct-answer-msg" style="visibility: hidden">
-                                 <p style="margin-bottom: 25%">Well Done</p>
-                             </div>
-                             <div id="wrong-answer-msg" style="visibility: hidden">
-                                 <p style="margin-bottom: 25%">Wrong answer: 41</p>
-                             </div>
-                             <div id="skip-msg" style="visibility: hidden">
-                                 <p>Skipped.</p>-->
-                            </div>
                         </div>
                     </div>
                 </div>
