@@ -39,31 +39,31 @@
                             <!--------------------------------------------------->
                             <!--Integer option -->
                             <form style="visibility: hidden" id="option-integer">
-                                <input  type="number" id="integer-answer">
+                                <input class="asnwer" type="number" id="integer-answer">
                             </form>
                             <!--------------------------------------------------->
                             <!--boolean option -->
                             <form style="visibility: hidden" id="option-boolean">
-                                <input type="button" value="true" id="true-answer">
-                                <input type="button" value="false" id="false-answer">
+                                <input class="asnwer" onclick="getAnswers()" type="button" value="true" id="true-answer">
+                                <input class="asnwer" onclick="getAnswers()" type="button" value="false" id="false-answer">
                             </form>
                             <!--------------------------------------------------->
                             <!--multiple choice -->
                             <form style="visibility: hidden" id="option-mcq">
-                                <p>A<input type="checkbox" id="answer-a"></p>
-                                <p>B<input type="checkbox" id="answer-b"></p>
-                                <p>C<input type="checkbox" id="answer-c"></p>
-                                <p>D<input type="checkbox" id="answer-d"></p>
+                                <input class="asnwer" onclick="getAnswers()" value="A" type="button" id="answer-a">
+                                <input class="asnwer" onclick="getAnswers()" value="B" type="button" id="answer-b">
+                                <input class="asnwer" onclick="getAnswers()" value="C" type="button" id="answer-c">
+                                <input class="asnwer" onclick="getAnswers()" value="D" type="button" id="answer-d">
                             </form>
                             <!--------------------------------------------------->
                             <!--text choice -->
                             <form style="visibility: hidden" id="text-option">
-                                <input type="textbox" id="text-answer">
+                                <input class="asnwer" type="textbox" id="text-answer">
                             </form>
                             <!--------------------------------------------------->
                             <!--numerical choice -->
                             <form style="visibility: hidden" id="numeric-option">
-                                <input type="number" step="0.000001" id="numeric-answer">
+                                <input class="asnwer" type="number" step="0.000001" id="numeric-answer">
                             </form>
                             <!--------------------------------------------------->
                             <!--submit btn -->
@@ -72,16 +72,16 @@
                             </form>
                             <!--------------------------------------------------->
                             <form style="visibility: hidden" id="skip-form">
-                                <input type="submit" id="skipBtn" onsubmit="Skip()" value="Skip Question">
+                                <input type="submit" id="skipBtn" onclick="Skip()" value="Skip Question">
                             </form>
-                            <div id="correct-answer-msg" style="visibility: hidden">
-                                <p style="margin-bottom: 25%">Well Done</p>
-                            </div>
-                            <div id="wrong-answer-msg" style="visibility: hidden">
-                                <p style="margin-bottom: 25%">Wrong answer: 41</p>
-                            </div>
-                            <div id="skip-msg" style="visibility: hidden">
-                                <p>Skipped.</p>
+                            <!--<div id="correct-answer-msg" style="visibility: hidden">
+                                 <p style="margin-bottom: 25%">Well Done</p>
+                             </div>
+                             <div id="wrong-answer-msg" style="visibility: hidden">
+                                 <p style="margin-bottom: 25%">Wrong answer: 41</p>
+                             </div>
+                             <div id="skip-msg" style="visibility: hidden">
+                                 <p>Skipped.</p>-->
                             </div>
                         </div>
                     </div>

@@ -162,76 +162,25 @@ function getQuestions() {
             });
 }
 
-function answerParameter(){
-    fetch('https://codecyprus.org/th/api/question?session=' + sessionID)
-        .then(response => response.json())
-        .then(jsonObject => {
-
-            let answerParam = "";
-            switch (answerParam) {
-                case 0: {
-                    if (jsonObject.questionType === "INTEGER") {
-                        let integerAnswer = document.getElementById("integer-answer");
-                        answerParam = integerAnswer;
-                    }
-                }
-                    break;
-                case 1: {
-                    if (jsonObject.questionType === "BOOLEAN") {
-                        let trueAnswer = document.getElementById("true-answer");
-                        let falseAnswer = document.getElementById("false-answer");
-                        answerParam = trueAnswer, falseAnswer;
-                    }
-                }
-                    break;
-                case 2: {
-                    if (jsonObject.questionType === "TEXT") {
-                        let textAnswer = document.getElementById("text-answer");
-                        answerParam = textAnswer;
-                    }
-                }
-                    break;
-                case 3: {
-                    if (jsonObject.questionType === "NUMERIC") {
-                        let numericAnswer = document.getElementById("numeric-answer");
-                        answerParam = numericAnswer;
-                    }
-                }
-                    break;
-                case 4: {
-                    if (jsonObject.questionType === "MCQ") {
-                        let optionA = document.getElementById("answer-a");
-                        let optionB = document.getElementById("answer-b");
-                        let optionC = document.getElementById("answer-c");
-                        let optionD = document.getElementById("answer-d");
-                        answerParam = optionA,optionB,optionC,optionD;
-                    }
-                }
-            }
-        })
-}
+var inputs = document.getElementsByClassName('asnwer');
 
 function getAnswers() {
-
-
-
-
-    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + answerParameter())
+    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + inputs)
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
-                if (jsonObject.completed === false) {
-                    if (jsonObject.correct === true) {
+                if (jsonObject.completed === false && jsonObject.correct === true) {
                         document.getElementById("correct-answer-msg").style.visibility = "visible";
                         score();
-                    }
+                        getQuestions();
+
                 }
                 else {
-                    if (jsonObject.completed === false) {
-                         if (jsonObject.correct === true) {
+                    if (jsonObject.completed === false && jsonObject.correct === true) {
+
                             document.getElementById("wrong-answer-msg").style.visibility = "visible";
                             score();
-                        }
+                            getQuestions();
                     }
                 }
             }
@@ -242,20 +191,23 @@ function getAnswers() {
                     for (let error in errorMessages) {
                         str += error;
                     }
-                    alert(str);
+                    console.log(str);
                 }
             }
         })
 }
+
+
 
 function Skip(){
     fetch('https://codecyprus.org/th/api/skip?session=' + sessionID)
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
+                score();
                 if (jsonObject.completed === false){
                     document.getElementById("skip-msg").style.visibility = "visible";
-                    score();
+
                 }
             }
             else {
