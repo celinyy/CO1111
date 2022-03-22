@@ -58,6 +58,9 @@
     height: 50px;
    margin-left: 5%;
 }
+input:hover {
+    background-color: #3897f0;
+}
 #submit{
     width: 80px;
     height: 40px;
