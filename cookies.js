@@ -61,7 +61,7 @@ function start() {
 
     //TODO - Check if the value is blank.....
     if (document.getElementById("playerName").value.length === null) {
-        alert("empty");
+        console.log("empty");
     } else {
         console.log("treasureHuntID: " + treasureHuntID);
         console.log("playerName:" + playerName);
@@ -87,7 +87,7 @@ function start() {
                 }
             })
             .catch(error => {
-                alert(error);
+                console.log(error);
             });
 
     }
@@ -154,11 +154,11 @@ function getQuestions() {
                     for (let error in errorMessages) {
                     str += error;
                     }
-                    alert(str);
+                console.log(str);
                 }
         })
             .catch(error => {
-                alert(error);
+                console.log(error);
             });
 }
 
@@ -217,12 +217,12 @@ function Skip(){
                     for (let error in errorMessages) {
                         str += error;
                     }
-                    alert(str);
+                    console.log(str);
                 }
             }
         })
         .catch(error => {
-            alert(error);
+            console.log(error);
         });
 }
 function score(){
@@ -260,11 +260,11 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
     else {
-        alert("Geolocation is not supported by your browser.");
+        console.log("Geolocation is not supported by your browser.");
     }
 }
 function showPosition(position) {
-    alert("Latitude: " + position.coords.latitude + ", Longitude: " +
+    console.log("Latitude: " + position.coords.latitude + ", Longitude: " +
         position.coords.longitude);
 }
 getLocation();
