@@ -35,7 +35,7 @@ function checkCookie() {
 
 function getChallenges () {
     let challengesList = document.getElementById("challenges");
-    fetch("https://codecyprus.org/th/test-api/list?number-of-ths=2")
+    fetch("https://codecyprus.org/th/test-api/list?number-of-ths=1")
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             let treasureHunts = jsonObject.treasureHunts;
@@ -66,7 +66,7 @@ function start() {
         console.log("playerName:" + playerName);
 
 
-        fetch("https://codecyprus.org/th/test-api/start?player=inactive" + playerName + "&app=Team4-2022&treasure-hunt-id=" + treasureHuntID)
+        fetch("https://codecyprus.org/th/test-api/start?player=inactive")
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
                 if (jsonObject.status === "OK") {
@@ -200,6 +200,7 @@ function Skip(){
         });
 }
 function score(){
+    let sessionID = getCookie(sessionID);
     fetch("https://codecyprus.org/th/test-api/score?session" + sessionID)
         .then(response => response.json())
         .then(jsonObject => {

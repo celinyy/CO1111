@@ -25,7 +25,7 @@
                     <div id="hud">
                         <div id="hud-items">
                             <p class="hud-prefix"></p>
-                            <h1 class="hud-main-text" id="number-of-questions"> 1/4</h1>
+                            <h1 class="hud-main-text" id="playerName"></h1>
                         </div>
                         <div id="hud-item">
                             <p class="hud-prefix"></p>
@@ -68,12 +68,21 @@
                             <!--------------------------------------------------->
                             <!--submit btn -->
                             <form id="sumbit-form">
-                            <input id="submit" type="submit" value="submit" required />.
+                            <input id="submit" type="submit" value="submit" required onsubmit="getAnswers()"/>.
                             </form>
                             <!--------------------------------------------------->
                             <form style="visibility: hidden" id="skip-form">
                                 <input type="submit" id="skipBtn" onsubmit="Skip()" value="Skip Question">
                             </form>
+                            <div id="correct-answer-msg" style="visibility: hidden">
+                                <p style="margin-bottom: 25%">Well Done</p>
+                            </div>
+                            <div id="wrong-answer-msg" style="visibility: hidden">
+                                <p style="margin-bottom: 25%">Wrong answer: 41</p>
+                            </div>
+                            <div id="skip-msg" style="visibility: hidden">
+                                <p>Skipped.</p>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -98,6 +98,7 @@ function getQuestions() {
             if (jsonObject.status === "OK") {
 
                 if (jsonObject.completed === false) {
+
                     let questionsElement = document.getElementById("question");//prinnting question
                     questionsElement.innerText = jsonObject.questionText;
 
@@ -127,7 +128,14 @@ function getQuestions() {
                         document.getElementById("text-option").style.visibility = "hidden";
                     }
                                 /*================================================================================*/
+                    if (jsonObject.questionType === "NUMERIC"){
+                        document.getElementById("numeric-option").style.visibility = "visible";
+                    }
+                    else {
+                        document.getElementById("numeric-option").style.visibility = "hidden";
+                    }
                 }
+
                 if (jsonObject.canBeSkipped === true) { //showing the skip button
                     document.getElementById("skip-form").style.visibility = "visible";
                     Skip();
@@ -145,37 +153,82 @@ function getQuestions() {
                     }
                     alert(str);
                 }
-            })
+        })
             .catch(error => {
                 alert(error);
             });
 }
 
-function getAnswers() {
-    let integerAnswer = document.getElementById("integer-answer");
-    let trueAnswer = document.getElementById("true-answer");
-    let falseAnswer = document.getElementById("false-answer");
-    let textAnswer = document.getElementById("text-answer");
-    let numericAnswer = document.getElementById("numeric-answer");
-    let optionA = document.getElementById("answer-a");
-    let optionB = document.getElementById("answer-b");
-    let optionC = document.getElementById("answer-c");
-    let optionD = document.getElementById("answer-d");
+function answerParameter(){
+    fetch('https://codecyprus.org/th/api/question?session=' + sessionID)
+        .then(response => response.json())
+        .then(jsonObject => {
 
-    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + integerAnswer + trueAnswer + falseAnswer + textAnswer + numericAnswer + optionA + optionB + optionC + optionD)
+            let answerParam = "";
+            switch (answerParam) {
+                case 0: {
+                    if (jsonObject.questionType === "INTEGER") {
+                        let integerAnswer = document.getElementById("integer-answer");
+                        answerParam = integerAnswer;
+                    }
+                }
+                    break;
+                case 1: {
+                    if (jsonObject.questionType === "BOOLEAN") {
+                        let trueAnswer = document.getElementById("true-answer");
+                        let falseAnswer = document.getElementById("false-answer");
+                        answerParam = trueAnswer, falseAnswer;
+                    }
+                }
+                    break;
+                case 2: {
+                    if (jsonObject.questionType === "TEXT") {
+                        let textAnswer = document.getElementById("text-answer");
+                        answerParam = textAnswer;
+                    }
+                }
+                    break;
+                case 3: {
+                    if (jsonObject.questionType === "NUMERIC") {
+                        let numericAnswer = document.getElementById("numeric-answer");
+                        answerParam = numericAnswer;
+                    }
+                }
+                    break;
+                case 4: {
+                    if (jsonObject.questionType === "MCQ") {
+                        let optionA = document.getElementById("answer-a");
+                        let optionB = document.getElementById("answer-b");
+                        let optionC = document.getElementById("answer-c");
+                        let optionD = document.getElementById("answer-d");
+                        answerParam = optionA,optionB,optionC,optionD;
+                    }
+                }
+            }
+        })
+}
+
+function getAnswers() {
+
+
+
+
+    fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + answerParameter())
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
-                if (jsonObject.correct === true){
-                    let message = jsonObject.message;
-                    alert(message);
-                    //score +10
+                if (jsonObject.completed === false) {
+                    if (jsonObject.correct === true) {
+                        document.getElementById("correct-answer-msg").style.visibility = "visible";
+                        score();
+                    }
                 }
                 else {
-                    if (jsonObject.correct === false){
-                        let wrgMessage = jsonObject.message;
-                        alert(wrgMessage);
-                        //score -3
+                    if (jsonObject.completed === false) {
+                         if (jsonObject.correct === true) {
+                            document.getElementById("wrong-answer-msg").style.visibility = "visible";
+                            score();
+                        }
                     }
                 }
             }
@@ -198,12 +251,9 @@ function Skip(){
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
                 if (jsonObject.completed === false){
-                    alert("Skipped");
+                    document.getElementById("skip-msg").style.visibility = "visible";
+                    score();
                 }
-                //check json === completed = true OR FALSE
-                //let complete = "";
-                // let skipMsg = json.message
-                //alert = skip msg
             }
             else {
                 if (jsonObject.status === "ERROR"){
@@ -225,12 +275,11 @@ function score(){
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
-
-                getCookie("playerName");
-
                 if (jsonObject.completed === false){
                     if (jsonObject.finished === false){
-
+                        var score = jsonObject.score;
+                        let scoreElement = document.getElementById("score");
+                        scoreElement.innerHTML = score;
                     }
                 }
 
