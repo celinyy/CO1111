@@ -274,7 +274,7 @@ function Skip(){
         });
 }
 function score(){
-    fetch("https://codecyprus.org/th/api/score?session" + sessionID)
+    fetch("https://codecyprus.org/th/api/score?session=" + sessionID)
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
