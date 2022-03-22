@@ -114,11 +114,11 @@ function getQuestions() {
                     document.getElementById("sumbit-form").style.visibility = "hidden";
                 }
                 if (jsonObject.questionType === "MCQ"){
-                    document.getElementById("answers").innerHTML = "<input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"A\" type=\"button\" id=\"answer-a\">\n" +
-                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"B\" type=\"button\" id=\"answer-b\">\n" +
-                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"C\" type=\"button\" id=\"answer-c\">\n" +
-                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"D\" type=\"button\" id=\"answer-d\">";
-
+                    document.getElementById("answers").innerHTML = "<input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"A\" type=\"submit\" id=\"answer-a\">\n" +
+                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"B\" type=\"submit\" id=\"answer-b\">\n" +
+                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"C\" type=\"submit\" id=\"answer-c\">\n" +
+                        "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"D\" type=\"submit\" id=\"answer-d\">";
+                    document.getElementById("sumbit-form").style.visibility = "hidden";
                 }
                 if (jsonObject.questionType === "TEXT"){
                     document.getElementById("answers").innerHTML = " <input class=\"answer\" type=\"textbox\" id=\"text-answer\">";
