@@ -20,6 +20,11 @@ function getCookie(cname) {
     }
     return "";
 }
+/*========================================================================*/
+const sessionID = getCookie("sessionID");
+const treasureHutID = getCookie("treasureHuntID");
+const playerName = getCookie("playerName");
+/*========================================================================*/
 
 function checkCookie() {
     let username = getCookie("username");
@@ -32,6 +37,7 @@ function checkCookie() {
         }
     }
 }
+
 
 function getChallenges () {
     let challengesList = document.getElementById("challenges");
@@ -104,47 +110,45 @@ function getQuestions() {
                     let questionsElement = document.getElementById("question");//prinnting question
                     questionsElement.innerText = jsonObject.questionText;
 
-                    if (jsonObject.questionType === "INTEGER") {
-                        document.getElementById("option-integer").style.visibility = "visible";
 
-                    } else {
-                        document.getElementById("option-integer").style.visibility = "hidden";
-                    }
-                    /*================================================================================*/
-                        if (jsonObject.questionType === "BOOLEAN") {
-                        document.getElementById("option-boolean").style.visibility = "visible";
-                    } else {
-                        document.getElementById("option-boolean").style.visibility = "hidden";
-                    }
-                        /*================================================================================*/
-                            if (jsonObject.questionType === "MCQ") {
-                        document.getElementById("option-mcq").style.visibility = "visible";
-
-                    } else {
-                        document.getElementById("option-mcq").style.visibility = "hidden";
-                    }
-                            /*================================================================================*/
-                                if (jsonObject.questionType === "TEXT") {
-                        document.getElementById("text-option").style.visibility = "visible";
-                    } else {
-                        document.getElementById("text-option").style.visibility = "hidden";
-                    }
-                                /*================================================================================*/
-                    if (jsonObject.questionType === "NUMERIC"){
-                        document.getElementById("numeric-option").style.visibility = "visible";
-                    }
-                    else {
-                        document.getElementById("numeric-option").style.visibility = "hidden";
-                    }
                 }
+                if (jsonObject.questionType === "INTEGER") {
+                    document.getElementById("option-integer").style.visibility = "visible";
+
+                } else {
+                    document.getElementById("option-integer").style.visibility = "hidden";
+                }
+                /*================================================================================*/
+                if (jsonObject.questionType === "BOOLEAN") {
+                    document.getElementById("option-boolean").style.visibility = "visible";
+                } else {
+                    document.getElementById("option-boolean").style.visibility = "hidden";
+                }
+                /*================================================================================*/
+                if (jsonObject.questionType === "MCQ") {
+                    document.getElementById("option-mcq").style.visibility = "visible";
+
+                } else {
+                    document.getElementById("option-mcq").style.visibility = "hidden";
+                }
+                /*================================================================================*/
+                if (jsonObject.questionType === "TEXT") {
+                    document.getElementById("text-option").style.visibility = "visible";
+                } else {
+                    document.getElementById("text-option").style.visibility = "hidden";
+                }
+                /*================================================================================*/
+                if (jsonObject.questionType === "NUMERIC"){
+                    document.getElementById("numeric-option").style.visibility = "visible";
+                }
+                else {
+                    document.getElementById("numeric-option").style.visibility = "hidden";
+                }
+
 
                 if (jsonObject.canBeSkipped === true) { //showing the skip button
-                    document.getElementById("skip-form").style.visibility = "visible";
+                    document.getElementById("skip-form").style.display= "inline";
                     Skip();
-                }
-                if (jsonObject.numOfQuestions === 0){
-                let sublitbtn = document.getElementById("submit");
-                sublitbtn.innerHTML = window.location.href="Leaderboard.html";
                 }
 
                 score();
@@ -170,16 +174,14 @@ function getAnswers() {
         .then(jsonObject => {
             if (jsonObject.status === "OK"){
                 if (jsonObject.completed === false && jsonObject.correct === true) {
-                        document.getElementById("correct-answer-msg").style.visibility = "visible";
-                        score();
+                        //document.getElementById("correct-answer-msg").style.visibility = "visible";
                         getQuestions();
 
                 }
                 else {
                     if (jsonObject.completed === false && jsonObject.correct === true) {
 
-                            document.getElementById("wrong-answer-msg").style.visibility = "visible";
-                            score();
+                            //document.getElementById("wrong-answer-msg").style.visibility = "visible";
                             getQuestions();
                     }
                 }
@@ -206,7 +208,7 @@ function Skip(){
             if (jsonObject.status === "OK"){
                 score();
                 if (jsonObject.completed === false){
-                    document.getElementById("skip-msg").style.visibility = "visible";
+                    //document.getElementById("skip-msg").style.visibility = "visible";
 
                 }
             }
@@ -242,7 +244,6 @@ function score(){
         })
 
 }
-score();
 function leaderboard(){
     let searchParams = new URLSearchParams(window.location.search);
     let treasureHuntID = searchParams.get("treasureHuntID");
@@ -256,6 +257,16 @@ function leaderboard(){
         })
 }
 function getLocation() {
+
+    var latitude = showPosition(position.coords.latitude);
+    var longitude = showPosition(position.coords.longitude);
+    fetch('https://codecyprus.org/th/api/location?session=' + sessionID  +  '&latitude=' + latitude +  '&longitude='+ longitude)
+        .then(response = response.json())
+        .then(jsonObject => {
+            if (jsonObject.status === "OK"){
+                alert("Added location" + "(" + longitude + latitude + ")")
+            }
+        })
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     }

@@ -43,13 +43,13 @@
                             </form>
                             <!--------------------------------------------------->
                             <!--boolean option -->
-                            <form style="visibility: hidden" id="option-boolean">
+                            <form style="visibility: hidden"  id="option-boolean">
                                 <input class="asnwer" onclick="getAnswers()" type="button" value="true" id="true-answer">
                                 <input class="asnwer" onclick="getAnswers()" type="button" value="false" id="false-answer">
                             </form>
                             <!--------------------------------------------------->
                             <!--multiple choice -->
-                            <form style="visibility: hidden" id="option-mcq">
+                            <form  style="visibility: hidden" id="option-mcq">
                                 <input class="asnwer" onclick="getAnswers()" value="A" type="button" id="answer-a">
                                 <input class="asnwer" onclick="getAnswers()" value="B" type="button" id="answer-b">
                                 <input class="asnwer" onclick="getAnswers()" value="C" type="button" id="answer-c">
@@ -71,7 +71,7 @@
                             <input id="submit" type="submit" value="submit" required onsubmit="getAnswers()"/>.
                             </form>
                             <!--------------------------------------------------->
-                            <form style="visibility: hidden" id="skip-form">
+                            <form id="skip-form">
                                 <input type="submit" id="skipBtn" onclick="Skip()" value="Skip Question">
                             </form>
                             <!--<div id="correct-answer-msg" style="visibility: hidden">
