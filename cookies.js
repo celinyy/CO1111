@@ -111,12 +111,14 @@ function getQuestions() {
                 if (jsonObject.questionType === "BOOLEAN"){
                     document.getElementById("answers").innerHTML = "<input class=\"answer\" onclick=\"getAnswers()\" type=\"submit\" value=\"true\" id=\"true-answer\">\n" +
                         "                                <input class=\"answer\" onclick=\"getAnswers()\" type=\"submit\" value=\"false\" id=\"false-answer\">";
+                    document.getElementById("sumbit-form").style.visibility = "hidden";
                 }
                 if (jsonObject.questionType === "MCQ"){
                     document.getElementById("answers").innerHTML = "<input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"A\" type=\"button\" id=\"answer-a\">\n" +
                         "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"B\" type=\"button\" id=\"answer-b\">\n" +
                         "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"C\" type=\"button\" id=\"answer-c\">\n" +
                         "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers()\" value=\"D\" type=\"button\" id=\"answer-d\">";
+
                 }
                 if (jsonObject.questionType === "TEXT"){
                     document.getElementById("answers").innerHTML = " <input class=\"answer\" type=\"textbox\" id=\"text-answer\">";
