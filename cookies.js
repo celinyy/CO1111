@@ -112,11 +112,13 @@ function getQuestions() {
                     document.getElementById("answers").innerHTML = "<input class=\"answer\" type=\"number\" id=\"integer-answer\" required>\n";
                     document.getElementById('ingeger-form').style.visibility = "visible";
                     score();
+
                     //document.getElementById('ingeger-form').innerHTML = "<input type=\"submit\" id=\"integer-submit\" value=\"submit\" onsubmit=\"getAnswers(document.getElementById('integer-answer').value);>";
                 }
                 if (jsonObject.questionType === "BOOLEAN"){
                     document.getElementById("answers").innerHTML = "<input class=\"answer\" onclick=\"getAnswers(true);\" type=\"submit\" value=\"true\" id=\"true-answer\">\n" +
                         "                                <input class=\"answer\" onclick=\"getAnswers(false);\" type=\"submit\" value=\"false\" id=\"false-answer\">";
+                    score();
 
                 }
                 if (jsonObject.questionType === "MCQ"){
@@ -124,21 +126,26 @@ function getQuestions() {
                         "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers('B');\" value=\"B\" type=\"submit\" id=\"answer-b\">\n" +
                         "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers('C');\" value=\"C\" type=\"submit\" id=\"answer-c\">\n" +
                         "                                <input style=\"width: 10%\" class=\"answer\" onclick=\"getAnswers('D');\" value=\"D\" type=\"submit\" id=\"answer-d\">";
+                    score();
                 }
                 if (jsonObject.questionType === "TEXT"){
                     document.getElementById("answers").innerHTML = " <input class=\"answer\" type=\"text\" id=\"text-answer\" required>";
-                    document.getElementById('text-form').innerHTML = "<input type=\"submit\" id=\"text-submit\" value=\"Submit\" onsubmit=\"getAnswers(document.getElementById('text-answer').value);>";
+                    document.getElementById('text-form').style.visibility = "visible";
+                    score();
+                    //document.getElementById('text-form').innerHTML = "<input type=\"submit\" id=\"text-submit\" value=\"Submit\" onsubmit=\"getAnswers(document.getElementById('text-answer').value);>";
                 }
                 if (jsonObject.questionType === "NUMERIC"){
                     document.getElementById("answers").innerHTML = "<input class=\"answer\" type=\"number\" step=\"0.000001\" id=\"numeric-answer\" required>";
-                    document.getElementById('numeric-form').innerHTML = "<input type=\"submit\" id=\"numeric-submit\" value=\"Submit\" onsubmit=\"getAnswers(document.getElementById('numeric-answer').value);>";
+                    document.getElementById('numeric-form').style.visibility = "visible";
+                    score();
+                    //document.getElementById('numeric-form').innerHTML = "<input type=\"submit\" id=\"numeric-submit\" value=\"Submit\" onsubmit=\"getAnswers(document.getElementById('numeric-answer').value);>";
                 }
-
 
 
                 if (jsonObject.canBeSkipped === true) { //showing the skip button
                     document.getElementById("skip-form").innerHTML = "<input style=\"visibility: visible\" type=\"submit\" onsubmit='Skip()' id=\"skipBtn\" value=\"Skip Question\">";
                 }
+
                 } else {
                     let errorMessages = jsonObject.errorMessages;
                     let str = "";
@@ -147,10 +154,15 @@ function getQuestions() {
                     }
                 console.log(str);
                 }
+
+            if (jsonObject.completed === true){
+                window.location.href="Leaderboard.html";
+            }
         })
             .catch(error => {
                 console.log(error);
             });
+
 }
 
 
