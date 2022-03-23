@@ -42,9 +42,20 @@
 
 
                         </form>
-                        <form id="sumbit-form" style="visibility: visible">
-                            <input id="submit" type="submit" value="submit" required onsubmit="getAnswers()"/>.
-                            </form>
+                        <form id="ingeger-form" style="visibility: hidden" >
+                            <input type="submit" id="integer-submit" value="submit" onclick="getAnswers(document.getElementById('integer-answer').value);">
+                        </form>
+                        <!--<form id="text-form" style="visibility:hidden" >
+                             <input class="answer" type="text" id="text-answer">
+                             <input type="submit" id="text-submit" value="Submit" onsubmit="getAnswers(textboxVal);">
+                         </form>
+
+                         <form id="numeric-form" style="visibility: hidden" >
+                             <input class="answer" type="number" step="0.000001" id="numeric-answer">
+                             <input type="submit" id="numeric-submit" value="Submit" onsubmit="getAnswers(numericboxval);">
+                         </form>-->
+
+
                             <form id="skip-form">
 
                             </form>
@@ -57,11 +68,12 @@
 </div>
 
 <script>
+
     getQuestions();
-    getAnswers();
+    getAnswers(answer);
     Skip();
     score();
-    getLocation();
+
 </script>
 
 
