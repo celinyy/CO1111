@@ -1,14 +1,11 @@
+/*Formatting for the entire page*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
-html
-{
-    scroll-behavior: smooth;
-    background-color: #e39361;
-}
+/*The top menu bar and associated buttons*/
 .menu-container
 {
     padding-top: 5%;
@@ -34,13 +31,14 @@ html
     padding-left: 10px;
     text-decoration: none;
 }
+/*Positioning of burger and home icon*/
 input
 {
     position: relative;
     right: 20px;
     height: 50px;
 }
-
+/*Challenges script formatting*/
 #challenges a
 {
 
@@ -55,6 +53,7 @@ input
 li{
     text-decoration: none;
 }
+
 .title1
 {
     padding-left: 42%;

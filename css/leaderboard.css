@@ -1,4 +1,6 @@
-table {
+/*Table border*/
+table
+{
     width: 100%;
     border: 1px solid blue
 }
@@ -13,17 +15,20 @@ th, td {
     font-family: sans-serif;
     box-sizing: border-box;
 }
-.menu ul{
+.menu ul
+{
     display: inline-flex;
     margin: 20px;
 }
-.menu li{
+.menu li
+{
     list-style: none;
     margin: 0 20px;
     color: black;
     cursor: pointer;
     padding-left: 10px;
 }
+/*Positioning of burger and home icon*/
 input
 {
     position: relative;
@@ -31,24 +36,29 @@ input
     right: 20px;
     height: 50px;
 }
-#burgir
+/*Restart button*/
+#restartBTN
 {
     position: relative;
     top: -47px;
     left: 50px;
     height: 50px;
 }
-.section1{
+
+.section1
+{
     background-color: #e39361;
     width: 100%;
     height: 60px;
     position: fixed;
 }
+/*Page background*/
 .section2{
     background-image: url("Sunsetbig.png");
     width: 100%;
     height: 1080px;
 }
+/*Serves at the overlay where the leaderboard table is displayed*/
 .gameBackground {
     background-color: #e39361;
     position: absolute;
