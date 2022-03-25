@@ -51,6 +51,7 @@ input
     top: 15%;
     padding: 2% 2% 2% 2%;
 }
+/*Background of the questions script*/
 .Qbackground{
     background-color: coral;
     position: absolute;

@@ -60,6 +60,8 @@ li{
     position: relative;
    bottom: 120px;
 }
+/*Feature used to make the pages more mobile friendly, it adapts the size and position of the items of the page
+if its width is smaller than 1000px*/
 @media only screen and (max-width: 1000px)
 {
     input

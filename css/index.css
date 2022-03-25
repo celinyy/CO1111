@@ -17,7 +17,7 @@ body{
     margin: 0;
     font-weight: 500;
 }
-/*The top menu bar and associated buttons*/
+/*The top menu bar and associated buttons/links*/
 .menu ul {
     display: inline-flex;
     margin: 20px;
@@ -49,7 +49,7 @@ h1
 {
     text-align: center;
 }
-
+/*Play button in the top bar*/
 a .play-btn a:hover
 {
     background-color: #E3D461;
