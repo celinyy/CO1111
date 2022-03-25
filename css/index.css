@@ -1,18 +1,23 @@
-*{
+/*Formatting for the entire page*/
+*
+{
     margin: 0;
     padding: 0;
     color: black;
     font-family: sans-serif;
     box-sizing: border-box;
 }
+/*The scroll-behavior function is used to make the page scroll smoothly when the buttons in the top bar are clicked*/
 html
 {
     scroll-behavior: smooth;
 }
+
 body{
     margin: 0;
     font-weight: 500;
 }
+/*The top menu bar and associated buttons*/
 .menu ul {
     display: inline-flex;
     margin: 20px;
@@ -43,18 +48,31 @@ h1
 {
     text-align: center;
 }
+
 a .play-btn a:hover
 {
     background-color: #E3D461;
     color: cornflowerblue;
 }
-.section1 {
+.section1
+{
     background-color: #E3D461;
     width: 100%;
     height: 60px;
     position: fixed;
 }
-.Sunset{
+.title
+{
+    color: white;
+    font-weight: bold;
+    text-align: center ;
+    font-size: 500%;
+    position: center;
+    padding-top: 150px;
+}
+/*The top bar section ends, this is the rest of the page*/
+.Sunset
+{
     background-image: url("Sunsetbig.png");
     width: 100%;
     height: 950px;
@@ -63,20 +81,12 @@ a .play-btn a:hover
     background-repeat: no-repeat;
     background-size: cover;
 }
-.title{
-    color: white;
-    font-weight: bold;
-    text-align: center ;
-    font-size: 500%;
-    position: center;
-    padding-top: 150px;
-}
-.blackline{
+.blackline
+{
     background-color: gold;
     width: 100%;
     height: 20px;
 }
-
 .section2{
     background-color: #E3D461;
     width: 100%;
@@ -88,6 +98,7 @@ a .play-btn a:hover
     width: 100%;
     height: 600px;
 }
+/*About us section*/
 .section4{
     background-color: #e39361;
     width: 100%;
@@ -98,6 +109,7 @@ a .play-btn a:hover
     width: 100%;
     height: 600px;
 }
+/*The big play button in the middle of the page*/
 .btn
 {
     background-color: #E3D461;
@@ -111,17 +123,28 @@ a .play-btn a:hover
     height: 50px;
     font-size: 30px;
 }
-
-.button{
+.button
+{
     padding-top: 300px;
 }
+/*The game story section above the about game section*/
 .gamesStory {
     padding-left: 15%;
     padding-right: 15%;
     padding-top: 10%;
     font-size: 25px;
 }
-.About-us-text{
+/*The about game section that is beneath the gamesStory*/
+.About-game-text
+{
+    padding-top: 10%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+/*The about us section of the page*/
+.About-us-text
+{
     position: relative;
     bottom: 90px;
     text-align: center;
@@ -129,12 +152,7 @@ a .play-btn a:hover
     padding-left: 15%;
     padding-top: 10%;
 }
-.About-game-text{
-    padding-top: 10%;
-    padding-left: 15%;
-    padding-right: 15%;
-}
-
+/*The images in the about us section. Notable issues are that they only display when in mobile view, and overlay the top bar*/
 .infomage
 {
     height: 100px;
@@ -142,15 +160,6 @@ a .play-btn a:hover
     position: relative;
     left: 410px;
 }
-/*.map{
-    position: center;
-    text-align: center;
-    background-repeat: no-repeat;
-    margin-left: 400px;
-    height: 700px;
-    width: 800px;
-    margin-top: -80px;
-}*/
 footer
 {
     position: relative;
@@ -159,11 +168,13 @@ footer
     height: 150px;
     background-color: black;
 }
+/*Imported Twitter timeline embed, it is shifted to the left, something which we could not find a fix for*/
 #twitter-timeline
 {
  position: relative;
  left: 500px;
 }
+/*Imported Instagram feed embed, it overlays over the top bar but otherwise adapts fine for both mobile and desktop views.*/
 .instagram-media
 {
     position:relative;
@@ -172,6 +183,8 @@ footer
 .about
 {
 }
+/*Feature used to make the pages more mobile friendly, it adapts the size and position of the items of the page
+if its width is smaller than 1000px*/
 @media only screen and (max-width: 1000px)
 {
     .section1
@@ -229,7 +242,8 @@ footer
     position: absolute;
     right: 2500px;
 }
-img{
+img
+{
     display: block;
     width: 60%;
     margin-left: -150%;
