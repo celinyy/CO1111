@@ -40,28 +40,25 @@
                     <div class="question-container" >
                         <h3 id="question"></h3>
                         <form id="answers">
-
-
-
+                        <!-- This is the form which consists of the inputs which are created in the javascript file -->
                         </form>
+                        <!-- Integer form creating a submit button for it and making it hidden-->
                         <form id="ingeger-form" style="visibility: hidden" >
                             <input type="submit" id="integer-submit" value="submit" onclick="getAnswers(document.getElementById('integer-answer').value);">
-
                         </form>
+                        <!-- creating a text field and a submit button for it making it hidden -->
                         <form id="text-form" style="visibility:hidden" >
                              <input class="answer" type="text" id="text-answer" onsubmit="getAnswers(document.getElementById('text-answer').value);">
                              <input type="submit" id="text-submit" value="Submit" onclick="getAnswers(document.getElementById('text-answer').value);">
                          </form>
-
+                        <!-- making a numeric field accepting floats and a submit button for it- making it hidden -->
                          <form id="numeric-form" style="visibility: hidden" >
                              <input class="answer" type="number" step="0.000001" id="numeric-answer" onsubmit="getAnswers(document.getElementById('numeric-answer').value);">
                              <input type="submit" id="numeric-submit" value="Submit" onclick="getAnswers(document.getElementById('numeric-answer').value);">
                          </form>
-
-
-                            <form id="skip-form">
-
-                            </form>
+                        <form id="skip-form">
+                            <!-- javascript creating a skip button when needed-->
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -71,12 +68,11 @@
 </div>
 
 <script>
+    //Script containing functions
     getQuestions();
     getAnswers(answer);
     score();
 getLocation();
-
-
 </script>
 
 
