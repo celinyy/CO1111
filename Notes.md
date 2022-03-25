@@ -99,3 +99,40 @@ What needs to be done:
 - cookies
 
 Attended: All 3
+
+Meetinh 7
+
+problem:
+ - Question.html doesnt load questions
+ - nor recognizes the answers for the answer api
+ - login page not responsive on mob
+ - menu not responsive on mob
+ - landing page imgs not fitting properly causing issues on mob
+ 
+ Updates on problems:
+  - questions load fine
+  - functions are setup correct
+  - login and menu are responsive as well as questions.html on mobile
+  - langing page is getting there with the images
+
+Attended: All 3
+
+Meeting 8
+
+problems:
+ - answer fuction parameter wrong
+ - not recognizing answers
+ - score and playername not showeing up
+ - not finishing a full session
+ - not going to leaderboard
+
+Update:
+ - fixed parameter on getanswer function
+ - answers are being read by the api
+ - a full session is being done
+ - going to leaderboard
+ - and score and player name are being shown on questions page
+
+Attended: Marios and maria. Lefteris was working on the landing page and could not join due to his headset charging 
+
+Meeting 9
