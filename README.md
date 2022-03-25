@@ -1,11 +1,4 @@
-Hello everyone 
-This is the updated manual for our project
+Team 4 Project
+Year 2021-2022
 
-While{
-Step1: Sleep
-Step2: Coffee
-Step3: Work/Learn and code
-Step4: More coffee
-Step5: More coding
-Step6: Got to sleep
-}
+Its a treasure hunt quiz App Created using HTML/CSS and Javascript
