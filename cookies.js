@@ -109,11 +109,10 @@ function getQuestions() {
                 questionsElement.innerText = jsonObject.questionText;
 
                 if (jsonObject.questionType === "INTEGER"){
-                    document.getElementById("answers").innerHTML = "<input class=\"answer\" type=\"number\" id=\"integer-answer\" required>\n";
+                    document.getElementById("answers").innerHTML = "<input class=\"answer\" type=\"number\" id=\"integer-answer\" onsubmit=\"getAnswers(document.getElementById('integer-answer').value);\" required>\n";
                     document.getElementById('ingeger-form').style.visibility = "visible";
                     score();
 
-                    //document.getElementById('ingeger-form').innerHTML = "<input type=\"submit\" id=\"integer-submit\" value=\"submit\" onsubmit=\"getAnswers(document.getElementById('integer-answer').value);>";
                 }
                 if (jsonObject.questionType === "BOOLEAN"){
                     document.getElementById("answers").innerHTML = "<input class=\"answer\" onclick=\"getAnswers(true);\" type=\"submit\" value=\"true\" id=\"true-answer\">\n" +
@@ -129,18 +128,18 @@ function getQuestions() {
                     score();
                 }
                 if (jsonObject.questionType === "TEXT"){
-                    document.getElementById("answers").innerHTML = " <input class=\"answer\" type=\"text\" id=\"text-answer\" required>";
                     document.getElementById('text-form').style.visibility = "visible";
                     score();
-                    //document.getElementById('text-form').innerHTML = "<input type=\"submit\" id=\"text-submit\" value=\"Submit\" onsubmit=\"getAnswers(document.getElementById('text-answer').value);>";
                 }
                 if (jsonObject.questionType === "NUMERIC"){
                     document.getElementById("answers").innerHTML = "<input class=\"answer\" type=\"number\" step=\"0.000001\" id=\"numeric-answer\" required>";
                     document.getElementById('numeric-form').style.visibility = "visible";
                     score();
-                    //document.getElementById('numeric-form').innerHTML = "<input type=\"submit\" id=\"numeric-submit\" value=\"Submit\" onsubmit=\"getAnswers(document.getElementById('numeric-answer').value);>";
                 }
 
+                if (jsonObject.requires-location === true){
+                    getLocation();
+                }
 
                 if (jsonObject.canBeSkipped === true) { //showing the skip button
                     document.getElementById("skip-form").innerHTML = "<input style=\"visibility: visible\" type=\"submit\" id=\"skipBtn\" value=\"Skip Question\">";
@@ -166,7 +165,13 @@ function getQuestions() {
 
 }
 
+function leaderboardJS (){
+    let scoreElement = document.getElementById("score-leaderboard");
+    scoreElement.innerText = getCookie('ScoreValue');
 
+    let playernameElement = document.getElementById('player-name-leaderboard');
+    playernameElement.innerText = getCookie('playerName');
+}
 
 function getAnswers(answer) {
     fetch('https://codecyprus.org/th/api/answer?session=' + sessionID + '&answer=' + answer)
@@ -226,6 +231,7 @@ function score(){
         .then(jsonObject => {
             if (jsonObject.status === "OK" && jsonObject.completed === false && jsonObject.finished === false){
                 var score = jsonObject.score;
+                setCookie('ScoreValue',score,365);
                 let scoreElement = document.getElementById("score");
                 scoreElement.innerText = score;
             }

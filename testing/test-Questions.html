@@ -36,44 +36,28 @@
                     <div class="question-container" >
                         <h3 id="question"></h3>
                         <div class="options-container">
-                            <!--------------------------------------------------->
-                            <!--Integer option -->
-                            <form style="visibility: hidden" id="option-integer">
-                                <input  type="number" id="integer-answer">
-                            </form>
-                            <!--------------------------------------------------->
-                            <!--boolean option -->
-                            <form style="visibility: hidden" id="option-boolean">
 
-                                <p>True<input id="true-answer"></p>
-                                <p>False<input type="checkbox" id="false-answer"></p>
+                            <form id="answers">
+
+
+
                             </form>
-                            <!--------------------------------------------------->
-                            <!--multiple choice -->
-                            <form style="visibility: hidden" id="option-mcq">
-                                <p>A<input type="checkbox" id="option-a"></p>
-                                <p>B<input type="checkbox" id="option-b"></p>
-                                <p>C<input type="checkbox" id="option-c"></p>
-                                <p>D<input type="checkbox" id="option-d"></p>
+                            <form id="ingeger-form" style="visibility: hidden" >
+                                <input type="submit" id="integer-submit" value="submit" onclick="getAnswers(document.getElementById('integer-answer').value);">
                             </form>
-                            <!--------------------------------------------------->
-                            <!--text choice -->
-                            <form style="visibility: hidden" id="text-option">
-                                <input type="textbox" id="text-answer">
+                            <form id="text-form" style="visibility:hidden" >
+                                <input class="answer" type="text" id="text-answer">
+                                <input type="submit" id="text-submit" value="Submit" onsubmit="getAnswers(document.getElementById('text-answer').value);">
                             </form>
-                            <!--------------------------------------------------->
-                            <!--numerical choice -->
-                            <form style="visibility: hidden" id="numeric-option">
-                                <input type="number" step="0.000001" id="numeric-answer">
+
+                            <form id="numeric-form" style="visibility: hidden" >
+                                <input class="answer" type="number" step="0.000001" id="numeric-answer">
+                                <input type="submit" id="numeric-submit" value="Submit" onsubmit="getAnswers(document.getElementById('numeric-answer').value);">
                             </form>
-                            <!--------------------------------------------------->
-                            <!--submit btn -->
-                            <form id="sumbit-form">
-                                <input id="submit" type="submit" value="submit" required />.
-                            </form>
-                            <!--------------------------------------------------->
-                            <form style="visibility: hidden" id="skip-form">
-                                <input type="submit" id="skipBtn" onsubmit="Skip()" value="Skip Question">
+
+
+                            <form id="skip-form">
+
                             </form>
                         </div>
                     </div>
@@ -84,7 +68,8 @@
 </div>
 
 <script>
-
+getQuestions();
+getAnswers();
 </script>
 
 

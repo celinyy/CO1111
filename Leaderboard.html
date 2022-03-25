@@ -11,19 +11,21 @@
 
 
 
-
 <div class="backgroundContainer">
     <section class="section1">
 
     </section>
     <section class="section3">
         <ul class="menu">
+
             <li><input alt="Home" type="image" src="https://icon-library.com/images/home-icon-transparent/home-icon-transparent-18.jpg" onclick="location.href='index.html'" /></li>
             <li><input id="burgir" alt="Menu" type="image" src="css/burgir.png" onclick="location.href='menu.html'"></li>
+            <li><input  id="restartBTN" type="submit" VALUE=" Play Again" onclick="location.href= 'menu.html'" /></li>
         </ul>
     </section>
     <section class="section2">
         <div class="gameBackground">
+
             <h1>LEADERBOARD</h1>
             <table id="leaderboard_table">
             <tr>
@@ -31,10 +33,19 @@
                 <th>Score</th>
                 <th>Time</th>
             </tr>
+                <tr>
+                    <td id="player-name-leaderboard"></td>
+                    <td id="score-leaderboard"></td>
+                </tr>
             </table>
+
             </div>
 
     </section>
+    <script>
+        leaderboard();
+        leaderboardJS();
+    </script>
 </div>
 </body>
 </html>

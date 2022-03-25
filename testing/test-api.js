@@ -35,7 +35,7 @@ function checkCookie() {
 
 function getChallenges () {
     let challengesList = document.getElementById("challenges");
-    fetch("https://codecyprus.org/th/test-api/list?number-of-ths=2")
+    fetch("https://codecyprus.org/th/test-api/list?number-of-ths=" + 2)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             let treasureHunts = jsonObject.treasureHunts;
@@ -66,14 +66,14 @@ function start() {
         console.log("playerName:" + playerName);
 
 
-        fetch("https://codecyprus.org/th/test-api/start?player=inactive" + playerName + "&app=Team4-2022&treasure-hunt-id=" + treasureHuntID)
+        fetch("https://codecyprus.org/th/test-api/start")
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
                 if (jsonObject.status === "OK") {
                     let sessionID = jsonObject.session;
                     console.log(sessionID);
                     setCookie("sessionID", sessionID, 30);
-                    window.location.href = "Questions.html";
+                    window.location.href = "test-Questions.html";
                 } else {
                     let errorMessages = jsonObject.errorMessages;
                     let str = "";
@@ -91,16 +91,12 @@ function start() {
 }
 
 function getQuestions() {
-    fetch('https://codecyprus.org/th/test-api/question?session=' + sessionID)
+    fetch('https://codecyprus.org/th/test-api/question?completed&question-type=MCQ&can-be-skipped&requires-location')
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK") {
 
                 if (jsonObject.completed === false) {
-
-                    //requires location.json
-                    // json.current questions print out 1/4
-                    // current questions is numof questions -1
 
                     //visibility of forms
                     let questionsElement = document.getElementById("question");//prinnting question
